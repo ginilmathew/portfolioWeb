@@ -16,9 +16,6 @@ const SkillScreen = () => {
   });
 
 
-
-
-  console.log({ data })
   return (
     <Box sx={ { height: '100vh' } }>
       <CustomThreeStar />
@@ -28,8 +25,9 @@ const SkillScreen = () => {
           display: 'flex',
           flexWrap: 'wrap',
           gap: 4,
+          alignItems: 'center',
           justifyContent: 'center',
-          pt: 10
+          pt: 15
         } }
       >
         { data?.data?.data?.map((skill, index) => (

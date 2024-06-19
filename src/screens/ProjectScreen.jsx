@@ -17,13 +17,14 @@ const ProjectScreen = () => {
   return (
     <>
       <CustomThreeStar />
-      <Grid container spacing={ 6 } justifyContent="center" alignItems="center" py={ 10 } px={ 10 }>
+      <Grid container spacing={ 5 } justifyContent="center" alignItems="center" pt={ 15 } pb={ 5 } px={ 10 }>
 
         { data?.data?.data?.map((project) => (
           <Grid item key={ project._id } xs={ 12 } sm={ 6 } md={ 4 }>
             <Box
               sx={ {
-                minHeight: 250,
+                minHeight: 230,
+                minWidth: 200,
                 background: 'transparent',
                 border: '1px solid #fff',
                 borderRadius: 3, // Rounded corners
@@ -37,7 +38,7 @@ const ProjectScreen = () => {
               } }
             >
 
-              <Box sx={ { padding: 3 } }> {/* Adjust padding for content */ }
+              <Box sx={ { padding: 2 } }> {/* Adjust padding for content */ }
                 <Typography variant="h5" gutterBottom sx={ { textAlign: 'center', color: '#3f51b5' } }>
                   { project.name }
                 </Typography>
@@ -50,9 +51,9 @@ const ProjectScreen = () => {
                 <Box sx={ { display: 'flex', flexDirection: 'row', gap: 2, flexWrap: 'wrap', py: 1 } }>
                   { project?.technology_used?.map((tech) => (
                     <Box key={ tech._id } >
-                      <ListItemIcon>
+                      <Box>
                         <Chip label={ tech.name } size="medium" variant="outlined" color="primary" />
-                      </ListItemIcon>
+                      </Box>
                     </Box>
                   )) }
                 </Box>

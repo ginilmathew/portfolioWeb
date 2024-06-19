@@ -51,7 +51,7 @@ const CustomThreeGeometry = () => {
     // Clean up
     return () => {
 
-      window.removeEventListener('resize', handleResize);
+      window?.removeEventListener('resize', handleResize);
       mountRef?.current?.removeChild(renderer.domElement);
     };
   }, []);

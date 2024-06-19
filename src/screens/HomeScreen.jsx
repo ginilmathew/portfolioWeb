@@ -28,7 +28,7 @@ const HomeScreen = () => {
   // Inline styles for the components
   const styles = {
     resumeContainer: {
-      height: '95vh',
+      height: '100vh',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
