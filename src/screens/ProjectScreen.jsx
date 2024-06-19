@@ -49,10 +49,10 @@ const ProjectScreen = () => {
                   Technologies Used:
                 </Typography>
                 <Box sx={ { display: 'flex', flexDirection: 'row', gap: 2, flexWrap: 'wrap', py: 1 } }>
-                  { project?.technology_used?.map((tech) => (
+                  { project?.technology_used?.map((tech, i) => (
                     <Box key={ tech._id } >
                       <Box>
-                        <Chip label={ tech.name } size="medium" variant="outlined" color="primary" />
+                        <Chip sx={ { color: `hsl(${i * 100}, 90%, 60%)` } } label={ tech.name } size="medium" variant="outlined" color="primary" />
                       </Box>
                     </Box>
                   )) }
