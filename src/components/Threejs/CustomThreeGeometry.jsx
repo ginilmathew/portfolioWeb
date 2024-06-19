@@ -17,7 +17,7 @@ const CustomThreeGeometry = () => {
 
     // Create a simple cube
     const geometry = new THREE.BoxGeometry();
-    const material = new THREE.MeshBasicMaterial({ color: "#f5f5f5" });
+    const material = new THREE.MeshBasicMaterial({ color: "#f50057" });
     const cube = new THREE.Mesh(geometry, material);
     scene.add(cube);
 

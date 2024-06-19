@@ -75,7 +75,7 @@ const HomeScreen = () => {
           variant="h6"
           sx={ {
             marginBottom: 2,
-            color: "green",
+            color: "#fff",
             fontWeight: 'bold',
             '&.animated-text': { /* Target the animation class for styles */
               animation: 'zoomInOut 5s ease-in-out infinite', /* Animation properties */
@@ -86,16 +86,16 @@ const HomeScreen = () => {
           { data?.data?.designation }
         </Typography>
 
-        <Typography variant="h7" sx={ { marginBottom: 2, color: '#000', fontWeight: 'bold' } }>
+        <Typography variant="h7" sx={ { marginBottom: 2, color: '#fff', fontWeight: 'bold' } }>
           About Me
         </Typography>
-        <Typography variant="body1" sx={ { marginBottom: 2, color: '#000', textAlign: 'justify', letterSpacing: 1, px: 3 } }>
+        <Typography variant="body1" sx={ { marginBottom: 2, color: '#fff', textAlign: 'justify', letterSpacing: 1, px: 3 } }>
           { data?.data?.bio }
         </Typography>
-        <Typography variant="h7" sx={ { marginBottom: 1, color: '#000', fontWeight: 'bold', } }>
+        <Typography variant="h7" sx={ { marginBottom: 1, color: '#fff', fontWeight: 'bold', } }>
           Experience
         </Typography>
-        <Typography variant="body1" sx={ { marginBottom: 1, color: '#555', fontSize: 20, px: 2 } }>
+        <Typography variant="body1" sx={ { marginBottom: 1, color: '#f5f5f5', fontSize: 20, px: 2 } }>
           { data?.data?.experience }
         </Typography>
 

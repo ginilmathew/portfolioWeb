@@ -14,6 +14,8 @@ const Header = () => {
     color: '#fff',
     transition: 'color 0.3s ease',
     cursor: 'pointer',
+    letterSpacing: 1,
+    fontWeight: "bold"
   };
 
   const handleMouseEnter = (index) => {
@@ -28,16 +30,19 @@ const Header = () => {
     <Box
       component="header"
       sx={ {
-        height: '5vh',
+
+        height: '8vh',
         background: '#000',
         display: 'flex',
-        justifyContent: 'flex-end',
+        justifyContent: 'flex-start',
         alignItems: 'center',
         gap: 1,
         color: '#fff',
         position: 'fixed',
         width: '100%',
         zIndex: 1000,
+        px: 5,
+
         top: 0,
         left: 0,
         boxShadow: 3,
