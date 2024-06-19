@@ -6,17 +6,12 @@ import me from '../assets/me.jpg';
 import { useQuery } from '@tanstack/react-query';
 import { useLocation } from 'react-router-dom';
 import CustomThreeGeometry from '../components/Threejs/CustomThreeGeometry';
-
-
-
-
-
+import "./animation.css"
 
 const HomeScreen = () => {
   // Data fetching using react-query
   // eslint-disable-next-line no-unused-vars
 
-  const location = useLocation()
 
   const { data, isError, isLoading, isFetched, refetch } = useQuery({
     queryKey: ['getme'],
@@ -25,7 +20,6 @@ const HomeScreen = () => {
 
 
 
-  // Inline styles for the components
   const styles = {
     resumeContainer: {
       height: '100vh',
@@ -69,7 +63,6 @@ const HomeScreen = () => {
 
   return (
     <Box sx={ styles.resumeContainer }>
-
       <CustomThreeGeometry />
       {/* Left side */ }
       <Grid item xs={ 12 } md={ 4 } sx={ styles.leftSide }>
@@ -78,17 +71,28 @@ const HomeScreen = () => {
 
       {/* Right side */ }
       <Grid item xs={ 12 } md={ 8 } sx={ styles.rightSide }>
-        <Typography variant="h5" sx={ { marginBottom: 2, color: '#000', fontWeight: 'bold' } }>
+        <Typography
+          variant="h6"
+          sx={ {
+            marginBottom: 2,
+            color: "green",
+            fontWeight: 'bold',
+            '&.animated-text': { /* Target the animation class for styles */
+              animation: 'zoomInOut 5s ease-in-out infinite', /* Animation properties */
+            },
+          } }
+          className="animated-text" // Apply the class for targeting
+        >
           { data?.data?.designation }
         </Typography>
 
-        <Typography variant="h5" sx={ { marginBottom: 2, color: '#000', fontWeight: 'bold' } }>
+        <Typography variant="h7" sx={ { marginBottom: 2, color: '#000', fontWeight: 'bold' } }>
           About Me
         </Typography>
-        <Typography variant="body1" sx={ { marginBottom: 2, color: '#000', textAlign: 'justify', letterSpacing: 1, px: 2 } }>
+        <Typography variant="body1" sx={ { marginBottom: 2, color: '#000', textAlign: 'justify', letterSpacing: 1, px: 3 } }>
           { data?.data?.bio }
         </Typography>
-        <Typography variant="h5" sx={ { marginBottom: 2, color: '#000', fontWeight: 'bold', } }>
+        <Typography variant="h7" sx={ { marginBottom: 1, color: '#000', fontWeight: 'bold', } }>
           Experience
         </Typography>
         <Typography variant="body1" sx={ { marginBottom: 1, color: '#555', fontSize: 20, px: 2 } }>

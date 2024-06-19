@@ -1,0 +1,14 @@
+.animated-text {
+  animation: none linear 1s; /* Replace with your desired animation */
+}
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1); /* Start at original size */
+  }
+  50% {
+    transform: scale(1.2); /* Zoom in to 120% size */
+  }
+  100% {
+    transform: scale(1); /* Zoom back to original size */
+  }
+}

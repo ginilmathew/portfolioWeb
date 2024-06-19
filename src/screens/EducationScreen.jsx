@@ -30,7 +30,7 @@ const EducationScreen = () => {
           display: 'flex',
           flexDirection: 'column',
           gap: 2,
-          padding: 3,
+          padding: 2,
         } }
       >
         { data?.data?.data?.map((education) => (
@@ -45,7 +45,7 @@ const EducationScreen = () => {
                 boxShadow: '0 0 10px rgba(0,0,0,0.5)',
               },
               borderRadius: 3,
-              padding: 3,
+              padding: 2,
               textAlign: 'center',
               color: '#fff',
             } }
