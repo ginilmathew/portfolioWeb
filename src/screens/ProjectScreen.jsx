@@ -19,7 +19,7 @@ const ProjectScreen = () => {
       <CustomThreeStar />
       <Grid container spacing={ 5 } justifyContent="center" alignItems="center" pt={ 15 } pb={ 5 } px={ 10 }>
 
-        { data?.data?.data?.map((project) => (
+        { data?.data?.data?.map((project, p) => (
           <Grid item key={ project._id } xs={ 12 } sm={ 6 } md={ 4 }>
             <Box
               sx={ {
@@ -39,7 +39,7 @@ const ProjectScreen = () => {
             >
 
               <Box sx={ { padding: 2 } }> {/* Adjust padding for content */ }
-                <Typography variant="h5" gutterBottom sx={ { textAlign: 'center', color: '#3f51b5' } }>
+                <Typography variant="h5" gutterBottom sx={ { textAlign: 'center', color: `hsl(${p * 100}, 90%, 60%)` } }>
                   { project.name }
                 </Typography>
                 <Typography color="text.secondary" sx={ { textAlign: 'initial', mb: 1, fontSize: 16, color: '#fff', letterSpacing: .5 } }>
