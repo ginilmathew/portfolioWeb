@@ -18,7 +18,7 @@ const ProjectScreen = () => {
     <Box sx={ { height: '100vh' } }>
       <CustomThreeStar />
       <Box
-        px={ 2 }
+        px={ 3 }
         sx={ {
           pt: '9vh'
         } }
@@ -30,10 +30,10 @@ const ProjectScreen = () => {
               <Box
                 sx={ {
                   minHeight: 230,
-                  minWidth: 200,
+                  Width: '100%',
                   background: 'transparent',
                   border: '1px solid #fff',
-                  borderRadius: 3, // Rounded corners
+                  borderRadius: 2, // Rounded corners
                   transition: 'transform 0.3s ease-in-out',
                   backdropFilter: 'blur(10px)', // Apply blur filter for glass effect
                   WebkitBackdropFilter: 'blur(10px)', // Support for older browsers
