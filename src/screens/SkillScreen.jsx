@@ -54,8 +54,8 @@ const SkillScreen = () => {
               justifyContent: 'center'
             } }
           >
-            <Typography sx={ { fontSize: 16, fontWeight: 'bold', letterSpacing: .5 } }>{ skill.name }</Typography>
-            <Typography sx={ { fontSize: 14 } }>{ skill.proficiency }</Typography>
+            <Typography sx={ { fontSize: 16, fontWeight: 'bold', color: "#fff", letterSpacing: .5, py: 1 } }>{ skill.name }</Typography>
+            <Typography sx={ { fontSize: 14, color: "#fff", letterSpacing: .5 } }>{ skill.proficiency }</Typography>
           </Box>
         )) }
       </Box>
