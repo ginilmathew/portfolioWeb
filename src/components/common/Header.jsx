@@ -1,11 +1,19 @@
 /* eslint-disable no-unused-vars */
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
 import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const location = useLocation();
   const [hovered, setHovered] = useState(null);
+
+  // Use a ref to store the active link instead of recalculating on every render
+  const activeLinkRef = React.useRef(null);
+
+  useEffect(() => {
+    // Update the active link ref when the location changes
+    activeLinkRef.current = location.pathname;
+  }, [location]);
 
   const linkStyle = {
     margin: '0 15px',
@@ -14,21 +22,21 @@ const Header = () => {
     transition: 'color 0.3s ease',
     cursor: 'pointer',
     letterSpacing: 1,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   };
 
-  const handleMouseEnter = useCallback((index) => {
+  const handleMouseEnter = (index) => {
     setHovered(index);
-  }, [hovered]);
+  };
 
-  const handleMouseLeave = useCallback(() => {
+  const handleMouseLeave = () => {
     setHovered(null);
-  }, [hovered]);
+  };
 
-  // Determine which link is active based on the current location pathname
-  const isActive = useCallback((pathname) => {
-    return location.pathname === pathname;
-  }, []);
+  // Use a single function to determine the link color
+  const getLinkColor = (pathname, index) => {
+    return activeLinkRef.current === pathname || hovered === index ? '#f50057' : '#fff';
+  };
 
   return (
     <Box
@@ -47,14 +55,14 @@ const Header = () => {
         px: 5,
         top: 0,
         left: 0,
-        boxShadow: 3
+        boxShadow: 3,
       } }
     >
       <Link
         href="home"
         style={ {
           ...linkStyle,
-          color: isActive('/home') || hovered === 0 ? '#f50057' : '#fff'
+          color: getLinkColor('/home', 0),
         } }
         onMouseEnter={ () => handleMouseEnter(0) }
         onMouseLeave={ handleMouseLeave }
@@ -62,10 +70,21 @@ const Header = () => {
         <Typography variant="h7">Home</Typography>
       </Link>
       <Link
+        to="skill"
+        style={ {
+          ...linkStyle,
+          color: getLinkColor('/home/skill', 1),
+        } }
+        onMouseEnter={ () => handleMouseEnter(1) }
+        onMouseLeave={ handleMouseLeave }
+      >
+        <Typography variant="h7">Skills</Typography>
+      </Link>
+      <Link
         to="education"
         style={ {
           ...linkStyle,
-          color: isActive('/home/education') || hovered === 2 ? '#f50057' : '#fff'
+          color: getLinkColor('/home/education', 2),
         } }
         onMouseEnter={ () => handleMouseEnter(2) }
         onMouseLeave={ handleMouseLeave }
@@ -73,22 +92,10 @@ const Header = () => {
         <Typography variant="h7">Education</Typography>
       </Link>
       <Link
-        to="skill"
-        style={ {
-          ...linkStyle,
-          color: isActive('/home/skill') || hovered === 1 ? '#f50057' : '#fff'
-        } }
-        onMouseEnter={ () => handleMouseEnter(1) }
-        onMouseLeave={ handleMouseLeave }
-      >
-        <Typography variant="h7">Skills</Typography>
-      </Link>
-
-      <Link
         to="project"
         style={ {
           ...linkStyle,
-          color: isActive('/home/project') || hovered === 3 ? '#f50057' : '#fff'
+          color: getLinkColor('/home/project', 3),
         } }
         onMouseEnter={ () => handleMouseEnter(3) }
         onMouseLeave={ handleMouseLeave }
@@ -99,7 +106,7 @@ const Header = () => {
         to="aichat"
         style={ {
           ...linkStyle,
-          color: isActive('/home/aichat') || hovered === 4 ? '#f50057' : '#fff'
+          color: getLinkColor('/home/aichat', 4),
         } }
         onMouseEnter={ () => handleMouseEnter(4) }
         onMouseLeave={ handleMouseLeave }

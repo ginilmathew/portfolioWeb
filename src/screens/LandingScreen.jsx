@@ -23,8 +23,7 @@ const LandingScreen = () => {
     mutate({ username: 'ginil', password: 'password' })
     const timeoutID = window.setTimeout(() => {
       navigate('/home')
-    }, 5000);
-
+    }, 3000);
     return () => window.clearTimeout(timeoutID);
   }, []);
 
