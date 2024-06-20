@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useRef, useEffect } from 'react'
 import * as THREE from 'three'
+
 const CustomThreeGeometry = () => {
   const mountRef = useRef(null);
   const sceneRef = useRef(null);
@@ -10,6 +11,7 @@ const CustomThreeGeometry = () => {
   useEffect(() => {
     // Scene setup
     const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x000000); // Set background to black
     const camera = new THREE.PerspectiveCamera(18, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -50,13 +52,14 @@ const CustomThreeGeometry = () => {
 
     // Clean up
     return () => {
-
       window?.removeEventListener('resize', handleResize);
       mountRef?.current?.removeChild(renderer.domElement);
     };
   }, []);
 
-  return <div ref={ mountRef } style={ { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: -1 } } />;
-}
+  return (
+    <div ref={ mountRef } style={ { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: -1 } } />
+  );
+};
 
-export default CustomThreeGeometry
+export default CustomThreeGeometry;

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
-import cat from '../../assets/medium.webp'
+import cat from '../../assets/medium.webp';
 
 const CustomThreeEarth = () => {
   const mountRef = useRef(null);
@@ -9,8 +9,10 @@ const CustomThreeEarth = () => {
   const cameraRef = useRef(null);
   const rendererRef = useRef(null);
   const earthRef = useRef(null);
+  const [animationRunning, setAnimationRunning] = useState(false);
 
   useEffect(() => {
+    // Initialize once
     let width = window.innerWidth;
     let height = window.innerHeight;
 
@@ -21,7 +23,7 @@ const CustomThreeEarth = () => {
     renderer.setSize(width, height);
     mountRef.current.appendChild(renderer.domElement);
 
-    // Create Earth
+    // Create Earth (only once)
     const textureLoader = new THREE.TextureLoader();
     const earthTexture = textureLoader.load(cat); // Adjust path to your texture
     const earthGeometry = new THREE.SphereGeometry(5, 32, 32); // Radius, widthSegments, heightSegments
@@ -33,11 +35,11 @@ const CustomThreeEarth = () => {
     // Position camera
     camera.position.z = 15;
 
-    // Add ambient light
+    // Add ambient light (only once)
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // soft white light
     scene.add(ambientLight);
 
-    // Add directional light
+    // Add directional light (only once)
     const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
     directionalLight.position.set(1, 1, 1).normalize();
     scene.add(directionalLight);
@@ -58,22 +60,40 @@ const CustomThreeEarth = () => {
 
     window.addEventListener('resize', handleResize);
 
-    // Animation loop
+    // Animation loop (only runs when animationRunning is true)
     const animate = () => {
-      requestAnimationFrame(animate);
-      earth.rotation.y += 0.001;
-      renderer.render(scene, camera);
+      if (animationRunning) {
+        requestAnimationFrame(animate);
+        earth.rotation.y += 0.001;
+        renderer.render(scene, camera);
+      }
     };
+
+    // Start animation on mount
+    setAnimationRunning(true);
     animate();
 
     // Clean up
     return () => {
       window.removeEventListener('resize', handleResize);
-      mountRef?.current?.removeChild(renderer.domElement);
+      mountRef.current.removeChild(renderer.domElement);
+      setAnimationRunning(false); // Stop animation on unmount
     };
   }, []);
 
-  return <div ref={ mountRef } style={ { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: -1 } } />;
+  // Control animation with a button or other UI element
+  const toggleAnimation = () => {
+    setAnimationRunning(!animationRunning);
+  };
+
+  return (
+    <div
+      ref={ mountRef }
+      style={ { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: -1 } }
+    >
+      {/* Add a button or other UI element here to call toggleAnimation() */ }
+    </div>
+  );
 };
 
 export default CustomThreeEarth;

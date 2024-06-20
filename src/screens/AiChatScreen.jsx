@@ -38,11 +38,9 @@ const AiChatScreen = () => {
 
 
   const handleKeyDown = (event) => {
-    if (text === "") return false;
+    if (text === "" || isPending) return false;
     if (event.keyCode === 13) {
-
       send()
-
     }
   };
 
@@ -80,7 +78,10 @@ const AiChatScreen = () => {
               endAdornment: (
                 <>
                   { isPending && (
-                    <CircularProgress size={ 24 } sx={ { position: 'absolute', right: 18, color: 'primary.main' } } />
+                    <Box pl={ 5 } height={ 65 } display={ 'flex' } alignItems={ 'center' }>
+                      <CircularProgress size={ 24 } sx={ { position: 'absolute', right: 18, color: 'primary.main' } } />
+                    </Box>
+
                   ) }
                   { !isPending && <IconButton aria-label="send message" color="primary" onClick={ send }>
                     <SendIcon />
@@ -88,7 +89,7 @@ const AiChatScreen = () => {
 
                 </>
               ),
-              sx: { borderRadius: 15, height: 60, pl: 1 }
+              sx: { borderRadius: 15, height: 65, pl: 1, pr: 3 }
             } }
           />
         </Box>

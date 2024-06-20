@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
 
 const CustomThreeDecahedro = () => {
@@ -7,6 +7,7 @@ const CustomThreeDecahedro = () => {
   const sceneRef = useRef(null);
   const cameraRef = useRef(null);
   const rendererRef = useRef(null);
+  const [animationFrameId, setAnimationFrameId] = useState(null);
 
   useEffect(() => {
     let width = window.innerWidth;
@@ -14,8 +15,8 @@ const CustomThreeDecahedro = () => {
 
     // Scene setup
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(18, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(width, height);
     mountRef.current.appendChild(renderer.domElement);
 
@@ -55,21 +56,36 @@ const CustomThreeDecahedro = () => {
 
     // Animation loop
     const animate = () => {
-      requestAnimationFrame(animate);
       dodecahedron.rotation.x += 0.01;
       dodecahedron.rotation.y += 0.01;
       renderer.render(scene, camera);
+      setAnimationFrameId(requestAnimationFrame(animate));
     };
+
     animate();
 
     // Clean up
     return () => {
       window.removeEventListener('resize', handleResize);
+      cancelAnimationFrame(animationFrameId);
       mountRef?.current?.removeChild(renderer.domElement);
     };
   }, []);
 
-  return <div ref={ mountRef } style={ { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: -1 } } />;
+  return (
+    <div
+      ref={ mountRef }
+      style={ {
+        background: '#000',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: -1,
+      } }
+    />
+  );
 };
 
 export default CustomThreeDecahedro;
