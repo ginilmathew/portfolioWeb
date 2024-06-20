@@ -106,7 +106,7 @@ const Header = () => {
         onMouseEnter={ () => handleMouseEnter(4) }
         onMouseLeave={ handleMouseLeave }
       >
-        <Typography variant="h7">Ai Chat</Typography>
+        <Typography variant="h7">Ai</Typography>
       </Link>
     </Box>
   );
