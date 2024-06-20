@@ -4,7 +4,7 @@ import { BASE_URL } from './config';
 
 
 
-const API_TIMEOUT_MS = 5000;
+const API_TIMEOUT_MS = 10000;
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
