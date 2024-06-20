@@ -14,7 +14,7 @@ const CustomThreeDecahedro = () => {
 
     // Scene setup
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(30, width / height, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(18, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(width, height);
     mountRef.current.appendChild(renderer.domElement);

@@ -65,17 +65,6 @@ const Header = () => {
         <Typography variant="h7">Home</Typography>
       </Link>
       <Link
-        to="skill"
-        style={ {
-          ...linkStyle,
-          color: isActive('/home/skill') || hovered === 1 ? '#f50057' : '#fff'
-        } }
-        onMouseEnter={ () => handleMouseEnter(1) }
-        onMouseLeave={ handleMouseLeave }
-      >
-        <Typography variant="h7">Skills</Typography>
-      </Link>
-      <Link
         to="education"
         style={ {
           ...linkStyle,
@@ -86,6 +75,18 @@ const Header = () => {
       >
         <Typography variant="h7">Education</Typography>
       </Link>
+      <Link
+        to="skill"
+        style={ {
+          ...linkStyle,
+          color: isActive('/home/skill') || hovered === 1 ? '#f50057' : '#fff'
+        } }
+        onMouseEnter={ () => handleMouseEnter(1) }
+        onMouseLeave={ handleMouseLeave }
+      >
+        <Typography variant="h7">Skills</Typography>
+      </Link>
+
       <Link
         to="project"
         style={ {
