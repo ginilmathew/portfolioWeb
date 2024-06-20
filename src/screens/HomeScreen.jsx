@@ -86,16 +86,16 @@ const HomeScreen = () => {
           { data?.data?.designation }
         </Typography>
 
-        <Typography variant="h7" sx={ { marginBottom: 2, color: '#fff', fontWeight: 'bold' } }>
+        <Typography variant="h7" sx={ { marginBottom: 2, color: '#fff', fontWeight: 'bold', letterSpacing: 1 } }>
           About Me
         </Typography>
         <Typography variant="body1" sx={ { marginBottom: 2, color: '#fff', textAlign: 'justify', letterSpacing: 1, px: 3 } }>
           { data?.data?.bio }
         </Typography>
-        <Typography variant="h7" sx={ { marginBottom: 1, color: '#fff', fontWeight: 'bold', } }>
+        <Typography variant="h7" sx={ { color: '#fff', fontWeight: 'bold', pb: 2, letterSpacing: 1 } }>
           Experience
         </Typography>
-        <Typography variant="body1" sx={ { marginBottom: 1, color: '#f5f5f5', fontSize: 20, px: 2 } }>
+        <Typography sx={ { color: '#f5f5f5', fontSize: 18, letterSpacing: 1 } }>
           { data?.data?.experience }
         </Typography>
 
