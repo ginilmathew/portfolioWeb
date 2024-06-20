@@ -20,7 +20,7 @@ const SkillScreen = () => {
     <Box sx={ { height: '100vh' } }>
       <CustomThreeStar />
       <Box
-        px={ 5 }
+        px={ 2 }
         sx={ {
           display: 'flex',
           flexWrap: 'wrap',
