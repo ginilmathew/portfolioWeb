@@ -50,7 +50,7 @@ axiosInstance.interceptors.response.use(
 
 
 async function errorHandler (error) {
-  console.log({ error: error.response.data.message }, 'statusss ');
+
   if (error?.response?.data?.message === "Unauthenticated") {
     localStorage.clear();
     window.location.href = '/';

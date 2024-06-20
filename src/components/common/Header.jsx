@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Box, Typography } from '@mui/material';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -7,8 +7,6 @@ const Header = () => {
   const location = useLocation();
   const [hovered, setHovered] = useState(null);
 
-
-  console.log(location.pathname, 'gotpathname')
   const linkStyle = {
     margin: '0 15px',
     textDecoration: 'none',
@@ -19,19 +17,18 @@ const Header = () => {
     fontWeight: 'bold'
   };
 
-  const handleMouseEnter = (index) => {
+  const handleMouseEnter = useCallback((index) => {
     setHovered(index);
-  };
+  }, [hovered]);
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = useCallback(() => {
     setHovered(null);
-  };
+  }, [hovered]);
 
   // Determine which link is active based on the current location pathname
-  const isActive = (pathname) => {
-    console.log({ pathname })
+  const isActive = useCallback((pathname) => {
     return location.pathname === pathname;
-  };
+  }, []);
 
   return (
     <Box
