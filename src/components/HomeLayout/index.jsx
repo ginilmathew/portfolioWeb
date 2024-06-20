@@ -11,7 +11,7 @@ const HomeLayout = () => {
     <>
       <Header />
       <Stack sx={ { width: '100%', color: '#fff', } } pt={ '6vh' } position={ 'absolute' }>
-        <Box width={ '100%' } height={ 2 } sx={ { background: '#f5f5f5' } }></Box>
+        <Box width={ '100%' } height={ 1.01 } sx={ { background: '#b5b5b5' } }></Box>
       </Stack>
       <Outlet />
     </>
