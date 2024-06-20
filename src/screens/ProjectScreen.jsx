@@ -32,7 +32,7 @@ const ProjectScreen = () => {
                 backdropFilter: 'blur(10px)', // Apply blur filter for glass effect
                 WebkitBackdropFilter: 'blur(10px)', // Support for older browsers
                 '&:hover': {
-                  transform: 'scale(1.08)', // Scale up slightly on hover
+                  transform: 'scale(1.02)', // Scale up slightly on hover
                   boxShadow: '0 12px 20px rgba(0, 0, 0, 0.3)', // Increase shadow on hover
                 },
               } }
