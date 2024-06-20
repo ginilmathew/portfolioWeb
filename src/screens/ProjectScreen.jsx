@@ -17,10 +17,10 @@ const ProjectScreen = () => {
   return (
     <>
       <CustomThreeStar />
-      <Grid container spacing={ 5 } justifyContent="center" alignItems="center" pt={ 15 } pb={ 8 } px={ 4 }>
+      <Grid container spacing={ 3 } justifyContent="center" alignItems="center" pt={ 15 } pb={ 8 } px={ 4 }>
 
         { data?.data?.data?.map((project, p) => (
-          <Grid item key={ project?._id } xs={ 12 } xs={ 12 } sm={ 12 } md={ 4 }>
+          <Grid item key={ project?._id } xs={ 12 } sm={ 12 } md={ 4 }>
             <Box
               sx={ {
                 minHeight: 230,
