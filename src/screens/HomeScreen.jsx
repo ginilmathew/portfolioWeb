@@ -68,9 +68,11 @@ const HomeScreen = () => {
       <Grid item xs={ 12 } md={ 4 } sx={ styles.leftSide }>
         <Avatar variant='square' src={ "" } alt="Profile Image" sx={ styles.avatar } />
       </Grid>
-
       {/* Right side */ }
       <Grid item xs={ 12 } md={ 8 } sx={ styles.rightSide }>
+        <Typography variant="h6" sx={ { marginBottom: 2, color: '#fff', fontWeight: 'bold', letterSpacing: 1 } }>
+          { data?.data?.fullname }
+        </Typography>
         <Typography
           variant="h6"
           sx={ {
@@ -85,7 +87,6 @@ const HomeScreen = () => {
         >
           { data?.data?.designation }
         </Typography>
-
         <Typography variant="h7" sx={ { marginBottom: 2, color: '#fff', fontWeight: 'bold', letterSpacing: 1 } }>
           About Me
         </Typography>
@@ -98,7 +99,6 @@ const HomeScreen = () => {
         <Typography sx={ { color: '#f5f5f5', fontSize: 18, letterSpacing: 1 } }>
           { data?.data?.experience }
         </Typography>
-
       </Grid>
     </Box>
   );

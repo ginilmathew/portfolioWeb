@@ -27,7 +27,7 @@ const SkillScreen = () => {
           gap: 4,
           alignItems: 'center',
           justifyContent: 'center',
-          pt: 15
+          pt: '9vh'
         } }
       >
         { data?.data?.data?.map((skill, index) => (

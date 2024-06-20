@@ -31,7 +31,7 @@ const Header = () => {
       component="header"
       sx={ {
 
-        height: '8vh',
+        height: '6vh',
         background: '#000',
         display: 'flex',
         justifyContent: 'flex-start',
