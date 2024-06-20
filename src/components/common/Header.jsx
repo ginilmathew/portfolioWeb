@@ -97,8 +97,8 @@ const Header = () => {
       >
         <Typography variant="h7">Projects</Typography>
       </Link>
-      <a
-        href="#"
+      <Link
+        to="aichat"
         style={ {
           ...linkStyle,
           color: hovered === 4 ? '#f50057' : '#fff'
@@ -106,8 +106,8 @@ const Header = () => {
         onMouseEnter={ () => handleMouseEnter(4) }
         onMouseLeave={ handleMouseLeave }
       >
-        <Typography variant="h7">Contact Me</Typography>
-      </a>
+        <Typography variant="h7">Ai Chat</Typography>
+      </Link>
     </Box>
   );
 };

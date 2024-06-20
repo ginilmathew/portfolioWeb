@@ -5,6 +5,7 @@ import HomeLayout from "../components/HomeLayout";
 import SkillScreen from "../screens/SkillScreen";
 import EducationScreen from "../screens/EducationScreen";
 import ProjectScreen from "../screens/ProjectScreen";
+import AiChatScreen from "../screens/AiChatScreen";
 
 
 export const router = createBrowserRouter([
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
       {
         path: "project",
         element: <ProjectScreen />
+      },
+      {
+        path: "aichat",
+        element: <AiChatScreen />
       },
     ]
   },
