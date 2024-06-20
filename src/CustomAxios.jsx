@@ -56,8 +56,6 @@ async function errorHandler (error) {
     window.location.href = '/';
   }
   if (error.response.data.message) {
-    console.log({ error: error.response.data.message })
-
     throw new Error(error.response.data.message);
   } else {
     throw new Error(error);

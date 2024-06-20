@@ -101,7 +101,7 @@ const Header = () => {
         to="aichat"
         style={ {
           ...linkStyle,
-          color: isActive('/home/aichat') || hovered === 3 ? '#f50057' : '#fff'
+          color: isActive('/home/aichat') || hovered === 4 ? '#f50057' : '#fff'
         } }
         onMouseEnter={ () => handleMouseEnter(4) }
         onMouseLeave={ handleMouseLeave }
