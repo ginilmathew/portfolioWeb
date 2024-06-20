@@ -20,12 +20,12 @@ const SkillScreen = () => {
     <Box sx={ { height: '100vh' } }>
       <CustomThreeStar />
       <Box
-        px={ 2 }
         sx={ {
+          px: 1,
           display: 'flex',
           flexWrap: 'wrap',
-          gap: 4,
-          alignItems: 'center',
+          gap: 3,
+          alignItems: 'initial',
           justifyContent: 'center',
           pt: '9vh',
           pb: 8,
@@ -40,7 +40,7 @@ const SkillScreen = () => {
               backgroundColor: `hsl(${index * 30}, 65%, 70%)`, // Different color for each box
               transition: 'transform 0.5s ease-in-out',
               '&:hover': {
-                transform: 'scale(1.2)',
+                transform: 'scale(1.05)',
                 boxShadow: '0 0 10px rgba(0,0,0,0.5)' // Box-shadow effect on hover
               },
               boxShadow: 10,
@@ -51,7 +51,8 @@ const SkillScreen = () => {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+
             } }
           >
             <Typography sx={ { fontSize: 16, fontWeight: 'bold', color: "#fff", letterSpacing: .5, py: 1 } }>{ skill.name }</Typography>
