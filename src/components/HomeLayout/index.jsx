@@ -11,7 +11,7 @@ const HomeLayout = () => {
     <>
       <Header />
       <Stack sx={ { width: '100%', color: '#fff', } } pt={ '6vh' } position={ 'absolute' }>
-        <LinearProgress sx={ { color: '#f5f5f5' } } />
+        <LinearProgress color='inherit' />
       </Stack>
       <Outlet />
     </>

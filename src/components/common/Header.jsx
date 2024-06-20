@@ -4,10 +4,11 @@ import { Box, Typography } from '@mui/material';
 import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
-
-  const location = useLocation()
+  const location = useLocation();
   const [hovered, setHovered] = useState(null);
 
+
+  console.log(location.pathname, 'gotpathname')
   const linkStyle = {
     margin: '0 15px',
     textDecoration: 'none',
@@ -15,7 +16,7 @@ const Header = () => {
     transition: 'color 0.3s ease',
     cursor: 'pointer',
     letterSpacing: 1,
-    fontWeight: "bold"
+    fontWeight: 'bold'
   };
 
   const handleMouseEnter = (index) => {
@@ -26,11 +27,16 @@ const Header = () => {
     setHovered(null);
   };
 
+  // Determine which link is active based on the current location pathname
+  const isActive = (pathname) => {
+    console.log({ pathname })
+    return location.pathname === pathname;
+  };
+
   return (
     <Box
       component="header"
       sx={ {
-
         height: '6vh',
         background: '#000',
         display: 'flex',
@@ -42,17 +48,16 @@ const Header = () => {
         width: '100%',
         zIndex: 1000,
         px: 5,
-
         top: 0,
         left: 0,
-        boxShadow: 3,
+        boxShadow: 3
       } }
     >
       <Link
         href="home"
         style={ {
           ...linkStyle,
-          color: hovered === 0 ? '#f50057' : '#fff',
+          color: isActive('/home') || hovered === 0 ? '#f50057' : '#fff'
         } }
         onMouseEnter={ () => handleMouseEnter(0) }
         onMouseLeave={ handleMouseLeave }
@@ -60,10 +65,10 @@ const Header = () => {
         <Typography variant="h7">Home</Typography>
       </Link>
       <Link
-        to={ 'skill' }
+        to="skill"
         style={ {
           ...linkStyle,
-          color: hovered === 1 ? '#f50057' : '#fff',
+          color: isActive('/home/skill') || hovered === 1 ? '#f50057' : '#fff'
         } }
         onMouseEnter={ () => handleMouseEnter(1) }
         onMouseLeave={ handleMouseLeave }
@@ -71,10 +76,10 @@ const Header = () => {
         <Typography variant="h7">Skills</Typography>
       </Link>
       <Link
-        to={ 'education' }
+        to="education"
         style={ {
           ...linkStyle,
-          color: hovered === 2 ? '#f50057' : '#fff',
+          color: isActive('/home/education') || hovered === 2 ? '#f50057' : '#fff'
         } }
         onMouseEnter={ () => handleMouseEnter(2) }
         onMouseLeave={ handleMouseLeave }
@@ -82,10 +87,10 @@ const Header = () => {
         <Typography variant="h7">Education</Typography>
       </Link>
       <Link
-        to={ "project" }
+        to="project"
         style={ {
           ...linkStyle,
-          color: hovered === 3 ? '#f50057' : '#fff',
+          color: isActive('/home/project') || hovered === 3 ? '#f50057' : '#fff'
         } }
         onMouseEnter={ () => handleMouseEnter(3) }
         onMouseLeave={ handleMouseLeave }
@@ -96,7 +101,7 @@ const Header = () => {
         href="#"
         style={ {
           ...linkStyle,
-          color: hovered === 4 ? '#f50057' : '#fff',
+          color: hovered === 4 ? '#f50057' : '#fff'
         } }
         onMouseEnter={ () => handleMouseEnter(4) }
         onMouseLeave={ handleMouseLeave }

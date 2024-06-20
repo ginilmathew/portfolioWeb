@@ -24,7 +24,7 @@ const SkillScreen = () => {
           px: 1,
           display: 'flex',
           flexWrap: 'wrap',
-          gap: 3,
+          gap: 4,
           alignItems: 'initial',
           justifyContent: 'center',
           pt: '9vh',
