@@ -23,7 +23,7 @@ const ProjectScreen = () => {
           pt: '9vh'
         } }
       >
-        <Grid container spacing={ 3 } justifyContent="center" alignItems="center" pb={ 8 }>
+        <Grid container spacing={ 6 } justifyContent="center" alignItems="center" pb={ 8 }>
 
           { data?.data?.data?.map((project, p) => (
             <Grid item key={ project?._id } xs={ 12 } sm={ 12 } md={ 4 }>
