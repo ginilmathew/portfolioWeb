@@ -37,8 +37,7 @@ const SkillScreen = () => {
             height={ 80 }
             width={ 200 }
             sx={ {
-              backgroundColor: `hsl(${index * 100}, 80%, 65%)`, // Different color for each box
-
+              backgroundColor: `hsl(${index * 30}, 65%, 70%)`, // Different color for each box
               transition: 'transform 0.5s ease-in-out',
               '&:hover': {
                 transform: 'scale(1.2)',
