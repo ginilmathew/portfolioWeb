@@ -37,6 +37,15 @@ const AiChatScreen = () => {
   }
 
 
+  const handleKeyDown = (event) => {
+    if (text === "") return false;
+    if (event.keyCode === 13) {
+
+      send()
+
+    }
+  };
+
 
 
   return (
@@ -55,13 +64,13 @@ const AiChatScreen = () => {
       >
         <MarkdownEditor.Markdown
           source={ code }
-          style={ { width: '85%', height: '70vh', borderRadius: 15, padding: 10, overflow: 'scroll', overflowX: 'unset', scrollbarWidth: 'thin' } }
+          style={ { width: '83%', height: '70vh', borderRadius: 15, padding: 10, overflow: 'scroll', overflowX: 'unset', scrollbarWidth: 'none' } }
         />
 
-        <Box sx={ { width: '85%', mt: 4, position: 'absolute', bottom: 40 } }>
+        <Box sx={ { width: '85%', mt: 4, } }>
           <TextField
             onError={ true }
-
+            onKeyDown={ handleKeyDown }
             onChange={ (e) => onchngeText(e) }
             sx={ { background: "#f5f5f5", borderRadius: 20 } }
             variant="outlined"
@@ -79,7 +88,7 @@ const AiChatScreen = () => {
 
                 </>
               ),
-              sx: { borderRadius: 15 }
+              sx: { borderRadius: 15, height: 60, pl: 1 }
             } }
           />
         </Box>
