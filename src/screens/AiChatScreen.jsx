@@ -5,11 +5,12 @@ import SendIcon from '@mui/icons-material/Send';
 import CustomThreeStar from '../components/Threejs/CustomThreeStar';
 import { useMutation } from '@tanstack/react-query';
 import { PostAi } from '../api/ai';
-
+import toast from 'react-hot-toast';
 const AiChatScreen = () => {
 
   const [code, setCode] = useState('')
   const [text, setText] = useState('')
+
 
 
 
@@ -19,7 +20,7 @@ const AiChatScreen = () => {
       setCode(data?.data?.data)
     },
     onError: (error, variables, context) => {
-      console.log({ error })
+      toast.error('Sorry Something Went Wrong')
     },
   })
 
@@ -30,6 +31,7 @@ const AiChatScreen = () => {
 
 
   const send = () => {
+    if (text === "") return false;
     setCode('')
     mutate({ prompt: text })
   }
@@ -58,6 +60,8 @@ const AiChatScreen = () => {
 
         <Box sx={ { width: '85%', mt: 4, position: 'absolute', bottom: 40 } }>
           <TextField
+            onError={ true }
+
             onChange={ (e) => onchngeText(e) }
             sx={ { background: "#f5f5f5", borderRadius: 20 } }
             variant="outlined"
@@ -67,7 +71,7 @@ const AiChatScreen = () => {
               endAdornment: (
                 <>
                   { isPending && (
-                    <CircularProgress size={ 24 } sx={ { position: 'absolute', right: 16, color: 'primary.main' } } />
+                    <CircularProgress size={ 24 } sx={ { position: 'absolute', right: 18, color: 'primary.main' } } />
                   ) }
                   { !isPending && <IconButton aria-label="send message" color="primary" onClick={ send }>
                     <SendIcon />
