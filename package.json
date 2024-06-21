@@ -45,6 +45,7 @@
     ]
   },
   "devDependencies": {
+    "web-vitals": "^4.2.0",
     "webpack": "^5.92.1"
   }
 }

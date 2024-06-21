@@ -75,8 +75,8 @@ const CustomThreeEarth = () => {
 
     // Clean up
     return () => {
-      window.removeEventListener('resize', handleResize);
-      mountRef.current.removeChild(renderer.domElement);
+      window?.removeEventListener('resize', handleResize);
+      mountRef?.current?.removeChild(renderer.domElement);
       setAnimationRunning(false); // Stop animation on unmount
     };
   }, []);
