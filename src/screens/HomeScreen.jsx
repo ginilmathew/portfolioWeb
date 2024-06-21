@@ -7,6 +7,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useLocation } from 'react-router-dom';
 import CustomThreeGeometry from '../components/Threejs/CustomThreeGeometry';
 import "./animation.css";
+import { IMAGEURL } from '../config';
 
 const HomeScreen = () => {
   // Data fetching using react-query
@@ -55,7 +56,6 @@ const HomeScreen = () => {
     },
   };
 
-  const url = "https://portfolio-1-yniz.onrender.com/public/"
 
 
   return (
@@ -63,7 +63,7 @@ const HomeScreen = () => {
       <CustomThreeGeometry />
       {/* Left side */ }
       <Grid item xs={ 12 } md={ 4 } sx={ styles.leftSide }>
-        <Avatar variant='square' src={ url + data?.data?.profileImg } alt="Profile Image" sx={ styles.avatar } />
+        <Avatar variant='square' src={ IMAGEURL + data?.data?.profileImg } alt="Profile Image" sx={ styles.avatar } />
       </Grid>
       {/* Right side */ }
       <Grid item xs={ 12 } md={ 8 } sx={ styles.rightSide }>

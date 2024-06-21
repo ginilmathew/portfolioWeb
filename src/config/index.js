@@ -4,10 +4,11 @@ const url = {
   dev: "https://portfolio-fnju.onrender.com/api/",
 }
 
-// const IMAGE = {
-//   dev: 'https://apild.diginestsolutions.in/public',
+const IMAGE = {
+  dev: 'https://apild.diginestsolutions.in/public',
 
-// }
+}
 
 export const BASE_URL = `${url[env]}`
 
+export const IMAGEURL = `${IMAGE[env]}`
