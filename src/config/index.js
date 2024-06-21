@@ -1,7 +1,7 @@
 export const env = "dev"
 
 const url = {
-  dev: "https://portfolio-1-yniz.onrender.com/api/",
+  dev: "https://portfolio-fnju.onrender.com/api/",
 }
 
 // const IMAGE = {

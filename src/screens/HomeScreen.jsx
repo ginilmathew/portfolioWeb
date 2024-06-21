@@ -55,12 +55,15 @@ const HomeScreen = () => {
     },
   };
 
+  const url = "https://portfolio-1-yniz.onrender.com/public/"
+
+
   return (
     <Box sx={ styles.resumeContainer }>
       <CustomThreeGeometry />
       {/* Left side */ }
       <Grid item xs={ 12 } md={ 4 } sx={ styles.leftSide }>
-        <Avatar variant='square' src={ "" } alt="Profile Image" sx={ styles.avatar } />
+        <Avatar variant='square' src={ url + data?.data?.profileImg } alt="Profile Image" sx={ styles.avatar } />
       </Grid>
       {/* Right side */ }
       <Grid item xs={ 12 } md={ 8 } sx={ styles.rightSide }>
