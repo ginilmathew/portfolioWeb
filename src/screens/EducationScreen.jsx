@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import CustomThreeDecahedro from '../components/Threejs/CustomThreeDecahedro';
 import { getEducationList } from '../api/education';
 import { useQuery } from '@tanstack/react-query';
 
@@ -23,8 +22,8 @@ const EducationScreen = () => {
 
 
   return (
-    <Box sx={ { height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' } }>
-      <CustomThreeDecahedro />
+    <Box sx={ { height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#000' } }>
+
       <Box
         sx={ {
           display: 'flex',

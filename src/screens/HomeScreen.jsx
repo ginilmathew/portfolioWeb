@@ -33,8 +33,9 @@ const HomeScreen = () => {
     avatar: {
       width: '100%',
       height: 'auto',
-      maxWidth: '250px',
-      maxHeight: '250px',
+      maxWidth: '200px',
+      maxHeight: '200px',
+      objectFit: 'cover',
       boxShadow: '5px 5px 10px rgba(0, 0, 0, 0.2)',
       borderRadius: '50%',
       transition: 'transform 0.5s ease-in-out',
