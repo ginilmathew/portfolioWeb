@@ -67,18 +67,22 @@ const AiChatScreen = () => {
 
         <Box sx={ { width: '85%', mt: 4, } }>
           <TextField
+            multiline
+
             onError={ true }
             onKeyDown={ handleKeyDown }
             onChange={ (e) => onchngeText(e) }
             sx={ { background: "#f5f5f5", borderRadius: 20 } }
-            variant="outlined"
+            variant="standard"
+
             placeholder="Type your message..."
             fullWidth
             InputProps={ {
+              disableUnderline: true,
               endAdornment: (
                 <>
                   { isPending && (
-                    <Box pl={ 5 } height={ 65 } display={ 'flex' } alignItems={ 'center' }>
+                    <Box pl={ 5 } height={ 60 } display={ 'flex' } alignItems={ 'center' }>
                       <CircularProgress size={ 24 } sx={ { position: 'absolute', right: 18, color: 'primary.main' } } />
                     </Box>
 
@@ -89,7 +93,7 @@ const AiChatScreen = () => {
 
                 </>
               ),
-              sx: { borderRadius: 15, height: 65, pl: 1, pr: 3 }
+              sx: { borderRadius: 8, minHeight: 65, pl: 3, pr: 3, border: 'none' }
             } }
           />
         </Box>
