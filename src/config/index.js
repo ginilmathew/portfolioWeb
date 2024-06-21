@@ -5,7 +5,7 @@ const url = {
 }
 
 const IMAGE = {
-  dev: 'https://apild.diginestsolutions.in/public',
+  dev: 'https://portfolio-fnju.onrender.com/images/',
 
 }
 
