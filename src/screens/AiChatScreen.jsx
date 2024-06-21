@@ -72,7 +72,7 @@ const AiChatScreen = () => {
             onError={ true }
             onKeyDown={ handleKeyDown }
             onChange={ (e) => onchngeText(e) }
-            sx={ { background: "#f5f5f5", borderRadius: 20 } }
+            sx={ { background: "#f5f5f5", borderRadius: 8 } }
             variant="standard"
 
             placeholder="Type your message..."
@@ -93,7 +93,7 @@ const AiChatScreen = () => {
 
                 </>
               ),
-              sx: { borderRadius: 8, minHeight: 65, pl: 3, pr: 3, border: 'none' }
+              sx: { minHeight: 65, pl: 3, pr: 3, border: 'none' }
             } }
           />
         </Box>
