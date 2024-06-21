@@ -27,8 +27,6 @@ const CustomThreeDecahedro = () => {
 
     // Position camera
     camera.position.z = 10;
-
-    // Add ambient light
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // soft white light
     scene.add(ambientLight);
 

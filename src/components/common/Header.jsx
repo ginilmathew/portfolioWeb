@@ -7,8 +7,6 @@ const Header = () => {
   const location = useLocation();
   const [hovered, setHovered] = useState(null);
 
-
-  console.log(location.pathname, 'gotpathname')
   const linkStyle = {
     margin: '0 15px',
     textDecoration: 'none',
@@ -33,6 +31,7 @@ const Header = () => {
   }
 
   return (
+
     <Box
       component="header"
       sx={ {
