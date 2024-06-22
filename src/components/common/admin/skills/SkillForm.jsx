@@ -13,6 +13,7 @@ import CustomInput from '../../CustomInput';
 import CustomSelect from '../../CustomSelect';
 import { LEVEL_TYPE } from '../../../../constant';
 import { createSkill, updateSkill } from '../../../../api/skill';
+import CustomBackDrop from '../../CustomBackDrop';
 
 const SkillForm = ({ close, open, label, hide, item, btnLabel, data }) => {
 
@@ -55,7 +56,7 @@ const SkillForm = ({ close, open, label, hide, item, btnLabel, data }) => {
     }
   }, [item]);
 
-  const { mutate } = useMutation({
+  const { mutate, isPending } = useMutation({
     mutationFn: item ? updateSkill : createSkill,
     onSuccess: async (data) => {
       reset()
@@ -117,7 +118,7 @@ const SkillForm = ({ close, open, label, hide, item, btnLabel, data }) => {
 
           </CustomSelect>
         </Grid>
-
+        { isPending && <CustomBackDrop loading={ isPending } /> }
       </Grid>
       { !hide &&
         <Box px={ 20 } py={ 4 } >

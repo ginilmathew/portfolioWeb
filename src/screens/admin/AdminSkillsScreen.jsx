@@ -10,6 +10,7 @@ import CustomDelete from '../../components/common/CustomDelete';
 import { useQuery } from '@tanstack/react-query';
 import SkillForm from '../../components/common/admin/skills/SkillForm';
 import { delteSkill, getAllSkill } from '../../api/skill';
+import CustomBackDrop from '../../components/common/CustomBackDrop';
 
 const AdminSkillsScreen = () => {
   const { modal, openModal, closeModal } = useModal();
@@ -143,7 +144,7 @@ const AdminSkillsScreen = () => {
       { modal.addModal && <SkillForm open={ modal.addModal } close={ closeAdd } label={ 'Create Skill' } hide={ false } id={ false } /> }
       { modal.editModal && <SkillForm open={ modal.editModal } close={ closeEdit } label={ 'Edit Skill' } hide={ false } id={ false } item={ item } /> }
       { modal.viewModal && <SkillForm open={ modal.viewModal } close={ closeView } label={ 'View Skill' } hide={ true } id={ false } item={ item } /> }
-
+      { isLoading && <CustomBackDrop loading={ isLoading } /> }
     </CustomOutletBox>
   )
 }

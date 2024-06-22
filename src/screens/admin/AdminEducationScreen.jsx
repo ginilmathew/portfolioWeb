@@ -9,7 +9,7 @@ import DataTable from '../../components/common/CustomTable';
 import CustomDelete from '../../components/common/CustomDelete';
 import { useQuery } from '@tanstack/react-query';
 import EducationForm from '../../components/common/admin/education/EducationForm';
-
+import CustomBackDrop from '../../components/common/CustomBackDrop'
 const AdminEducationScreen = () => {
   const { modal, openModal, closeModal } = useModal();
   const { data, isError, isLoading, isFetched, refetch } = useQuery({ queryKey: ['educationlist'], queryFn: getEducationList });
@@ -153,7 +153,7 @@ const AdminEducationScreen = () => {
       { modal.addModal && <EducationForm open={ modal.addModal } close={ closeAdd } label={ 'Create Education' } hide={ false } id={ false } /> }
       { modal.editModal && <EducationForm open={ modal.editModal } close={ closeEdit } label={ 'Edit Education' } hide={ false } id={ false } item={ item } /> }
       { modal.viewModal && <EducationForm open={ modal.viewModal } close={ closeView } label={ 'View Education' } hide={ true } id={ false } item={ item } /> }
-
+      { isLoading && <CustomBackDrop loading={ isLoading } /> }
     </CustomOutletBox>
   )
 }

@@ -11,6 +11,7 @@ import { useQueries, useQuery } from '@tanstack/react-query';
 import ProjectForm from '../../components/common/admin/projects/ProjectForm';
 import { delteproject, getProjectList } from '../../api/project';
 import { getAllSkill } from '../../api/skill';
+import CustomBackDrop from '../../components/common/CustomBackDrop';
 
 const AdminProjectScreen = () => {
   const { modal, openModal, closeModal } = useModal();
@@ -150,7 +151,7 @@ const AdminProjectScreen = () => {
       { modal.addModal && <ProjectForm open={ modal.addModal } close={ closeAdd } label={ 'Create Project' } hide={ false } id={ false } data={ data?.[1]?.data?.data?.data } /> }
       { modal.editModal && <ProjectForm open={ modal.editModal } close={ closeEdit } label={ 'Edit Project' } hide={ false } id={ false } item={ item } data={ data?.[1]?.data?.data?.data } /> }
       { modal.viewModal && <ProjectForm open={ modal.viewModal } close={ closeView } label={ 'View Project' } hide={ true } id={ false } item={ item } data={ data?.[1]?.data?.data?.data } /> }
-
+      { data?.isLoading && <CustomBackDrop loading={ data?.isLoading } /> }
     </CustomOutletBox>
   )
 }
