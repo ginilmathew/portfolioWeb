@@ -23,7 +23,7 @@ const AdminProjectScreen = () => {
   }
   );
 
-
+  console.log(data, 'MY DATAAAAA')
   const [item, setItem] = useState(null);
   const [_id, set_id] = useState(null);
 
@@ -151,7 +151,7 @@ const AdminProjectScreen = () => {
       { modal.addModal && <ProjectForm open={ modal.addModal } close={ closeAdd } label={ 'Create Project' } hide={ false } id={ false } data={ data?.[1]?.data?.data?.data } /> }
       { modal.editModal && <ProjectForm open={ modal.editModal } close={ closeEdit } label={ 'Edit Project' } hide={ false } id={ false } item={ item } data={ data?.[1]?.data?.data?.data } /> }
       { modal.viewModal && <ProjectForm open={ modal.viewModal } close={ closeView } label={ 'View Project' } hide={ true } id={ false } item={ item } data={ data?.[1]?.data?.data?.data } /> }
-      { data?.isLoading && <CustomBackDrop loading={ data?.isLoading } /> }
+      { data?.[0]?.data?.data?.isLoading && <CustomBackDrop loading={ data?.[0]?.data?.data?.isLoading } /> }
     </CustomOutletBox>
   )
 }
