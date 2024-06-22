@@ -9,18 +9,7 @@ import { useNavigate } from 'react-router-dom'
 const LandingScreen = () => {
   const navigate = useNavigate()
 
-  const { mutate, isLoading } = useMutation({
-    mutationFn: PostLogin,
-    onSuccess: async (data) => {
-      localStorage.setItem("token", data.data.token)
-    },
-    onError: (error, variables, context) => {
-
-    },
-  })
-
   React.useEffect(() => {
-    mutate({ username: 'ginil', password: 'password' })
     const timeoutID = window.setTimeout(() => {
       navigate('/home')
     }, 3000);
