@@ -19,7 +19,7 @@ const EducationScreen = () => {
   return (
     <Grid container justifyContent="center" alignItems="center" sx={ { height: '100vh' } }>
       <CustomThreeDecahedro />
-      <Grid item xs={ 12 } md={ 84 } lg={ 4 } pt={ '9vh' } px={ 2 }>
+      <Grid item xs={ 12 } md={ 84 } lg={ 4 } pt={ '9vh' } px={ 4 }>
         <Grid container spacing={ 4 }>
           { data?.data?.data?.map((education) => (
             <Grid item key={ education._id } xs={ 12 }>
@@ -37,11 +37,11 @@ const EducationScreen = () => {
                   color: '#fff',
                 } }
               >
-                <Typography fontSize={ 16 } sx={ { fontWeight: 'bold', mb: 1, letterSpacing: 0.5 } }>
+                <Typography fontSize={ 16 } sx={ { fontWeight: 'bold', letterSpacing: 0.5 } }>
                   { education.name }
                 </Typography>
-                <Typography variant="subtitle1">{ education?.place }</Typography>
-                <Typography variant="body2" py={ 1 }>
+                <Typography>{ education?.place }</Typography>
+                <Typography variant="body2">
                   { `${education.course}, ${education.marks_percentage}%` }
                 </Typography>
                 <Typography variant="body2">{ education.presentDate }</Typography>
