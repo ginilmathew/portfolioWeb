@@ -93,7 +93,7 @@ const AiChatScreen = () => {
 
                 </>
               ),
-              sx: { minHeight: 65, pl: 3, pr: 3, border: 'none' }
+              sx: { minHeight: 65, pl: 4, pr: 3, borderRadius: 2 }
             } }
           />
         </Box>

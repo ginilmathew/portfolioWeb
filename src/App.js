@@ -4,11 +4,14 @@ import { Box } from '@mui/material';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './routes';
 import { Toaster } from 'react-hot-toast';
+import { SnackbarProvider } from './hooks/SnackBar';
 function App () {
   return (
     <Box>
-      <RouterProvider router={ router } />
-      <Toaster />
+      <SnackbarProvider>
+        <RouterProvider router={ router } />
+        <Toaster />
+      </SnackbarProvider>
     </Box>
   );
 }

@@ -1,10 +1,8 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import { getEducationList } from '../api/education';
 import { useQuery } from '@tanstack/react-query';
-
-
+import CustomThreeDecahedro from '../components/Threejs/CustomThreeDecahedro';
 
 const getRandomColor = () => {
   const hue = Math.floor(Math.random() * 360);
@@ -13,50 +11,46 @@ const getRandomColor = () => {
 };
 
 const EducationScreen = () => {
-
-
   const { data, isError, isLoading, isFetched, refetch } = useQuery({
     queryKey: ['educationList'],
     queryFn: getEducationList,
   });
 
-
   return (
-    <Box sx={ { height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#000' } }>
-
-      <Box
-        sx={ {
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 2,
-          padding: 2,
-        } }
-      >
-        { data?.data?.data?.map((education) => (
-          <Box
-            key={ education._id }
-            sx={ {
-              width: '100%',
-              background: getRandomColor(),
-              transition: 'transform 0.3s ease-in-out',
-              '&:hover': {
-                transform: 'scale(1.05)',
-                boxShadow: '0 0 10px rgba(0,0,0,0.5)',
-              },
-              borderRadius: 3,
-              padding: 2,
-              textAlign: 'center',
-              color: '#fff',
-            } }
-          >
-            <Typography variant="h8" sx={ { fontWeight: 'bold', mb: 1, letterSpacing: .5 } }>{ education.name }</Typography>
-            <Typography variant="h9">{ education?.place }</Typography>
-            <Typography fontSize={ 12 } py={ 1 }>{ `${education.course}, ${education.marks_percentage}%` }</Typography>
-            <Typography fontSize={ 12 }>{ education.presentDate }</Typography>
-          </Box>
-        )) }
-      </Box>
-    </Box>
+    <Grid container justifyContent="center" alignItems="center" sx={ { height: '100vh' } }>
+      <CustomThreeDecahedro />
+      <Grid item xs={ 12 } md={ 84 } lg={ 4 } pt={ '9vh' } px={ 2 }>
+        <Grid container spacing={ 4 }>
+          { data?.data?.data?.map((education) => (
+            <Grid item key={ education._id } xs={ 12 }>
+              <Box
+                sx={ {
+                  background: getRandomColor(),
+                  transition: 'transform 0.3s ease-in-out',
+                  '&:hover': {
+                    transform: 'scale(1.05)',
+                    boxShadow: '0 0 10px rgba(0,0,0,0.5)',
+                  },
+                  borderRadius: 3,
+                  padding: 1,
+                  textAlign: 'center',
+                  color: '#fff',
+                } }
+              >
+                <Typography fontSize={ 16 } sx={ { fontWeight: 'bold', mb: 1, letterSpacing: 0.5 } }>
+                  { education.name }
+                </Typography>
+                <Typography variant="subtitle1">{ education?.place }</Typography>
+                <Typography variant="body2" py={ 1 }>
+                  { `${education.course}, ${education.marks_percentage}%` }
+                </Typography>
+                <Typography variant="body2">{ education.presentDate }</Typography>
+              </Box>
+            </Grid>
+          )) }
+        </Grid>
+      </Grid>
+    </Grid>
   );
 };
 

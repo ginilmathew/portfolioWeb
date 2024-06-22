@@ -2,9 +2,7 @@
 import React from 'react';
 import { Avatar, Box, Grid, Typography } from '@mui/material';
 import { getProfile } from '../api/home';
-import me from '../assets/me.jpg';
 import { useQuery } from '@tanstack/react-query';
-import { useLocation } from 'react-router-dom';
 import CustomThreeGeometry from '../components/Threejs/CustomThreeGeometry';
 import "./animation.css";
 import { IMAGEURL } from '../config';
