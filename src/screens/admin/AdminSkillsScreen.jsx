@@ -8,7 +8,6 @@ import CustomAddButton from '../../components/common/CustomAddButton';
 import DataTable from '../../components/common/CustomTable';
 import CustomDelete from '../../components/common/CustomDelete';
 import { useQuery } from '@tanstack/react-query';
-import EducationForm from '../../components/common/admin/education/EducationForm';
 import SkillForm from '../../components/common/admin/skills/SkillForm';
 import { delteSkill, getAllSkill } from '../../api/skill';
 

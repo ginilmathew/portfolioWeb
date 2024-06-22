@@ -50,7 +50,6 @@ const SkillForm = ({ close, open, label, hide, item, btnLabel, data }) => {
 
   useEffect(() => {
     if (item) {
-      console.log({ item }, 'got item')
       reset(item)
       setType(item?.proficiency)
     }
