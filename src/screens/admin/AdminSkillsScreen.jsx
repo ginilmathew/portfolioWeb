@@ -139,7 +139,7 @@ const AdminSkillsScreen = () => {
         paragraph={ 'Skill' }
         fun={ delteSkill }
         _id={ _id }
-        fetch={ 'educationlist' } /> }
+        fetch={ 'getSkills' } /> }
 
       { modal.addModal && <SkillForm open={ modal.addModal } close={ closeAdd } label={ 'Create Skill' } hide={ false } id={ false } /> }
       { modal.editModal && <SkillForm open={ modal.editModal } close={ closeEdit } label={ 'Edit Skill' } hide={ false } id={ false } item={ item } /> }
