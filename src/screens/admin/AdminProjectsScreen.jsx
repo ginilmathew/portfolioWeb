@@ -1,13 +1,12 @@
 import React, { useCallback, useState } from 'react'
 import CustomOutletBox from '../../components/common/CustomOutletBox'
 import useModal from '../../components/common/modalHook';
-import { delteEducation, getEducationList } from '../../api/education';
 import { Box, Stack, Tooltip } from '@mui/material';
 import { ICONS } from '../../assets/icons';
 import CustomAddButton from '../../components/common/CustomAddButton';
 import DataTable from '../../components/common/CustomTable';
 import CustomDelete from '../../components/common/CustomDelete';
-import { useQueries, useQuery } from '@tanstack/react-query';
+import { useQueries } from '@tanstack/react-query';
 import ProjectForm from '../../components/common/admin/projects/ProjectForm';
 import { delteproject, getProjectList } from '../../api/project';
 import { getAllSkill } from '../../api/skill';
