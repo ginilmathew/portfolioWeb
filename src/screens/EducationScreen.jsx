@@ -3,6 +3,7 @@ import { Box, Grid, Typography } from '@mui/material';
 import { getEducationList } from '../api/education';
 import { useQuery } from '@tanstack/react-query';
 import CustomThreeDecahedro from '../components/Threejs/CustomThreeDecahedro';
+import CustomThreeStar from '../components/Threejs/CustomThreeStar';
 
 const getRandomColor = () => {
   const hue = Math.floor(Math.random() * 360);
@@ -18,7 +19,7 @@ const EducationScreen = () => {
 
   return (
     <Grid container justifyContent="center" alignItems="center" sx={ { height: '100vh' } }>
-      <CustomThreeDecahedro />
+      <CustomThreeStar />
       <Grid item xs={ 12 } md={ 84 } lg={ 4 } pt={ '9vh' } px={ 4 }>
         <Grid container spacing={ 4 } pb={ 5 }>
           { data?.data?.data?.map((education) => (

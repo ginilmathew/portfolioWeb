@@ -67,7 +67,7 @@ const HomeScreen = () => {
           <Avatar variant='square' src={ IMAGEURL + data?.data?.profileImg } alt="Profile Image" sx={ styles.avatar } />
         </Grid>
         {/* Right side */ }
-        <Grid item xs={ 12 } md={ 8 } sx={ styles.rightSide }>
+        <Grid item xs={ 12 } md={ 8 } sm={ 12 } sx={ styles.rightSide }>
           {/* Display "Loading..." if data is still loading */ }
           { isLoading ? (
             <Typography variant="h6" sx={ { marginBottom: 2, color: '#fff', fontWeight: 'bold', letterSpacing: 1 } }>
