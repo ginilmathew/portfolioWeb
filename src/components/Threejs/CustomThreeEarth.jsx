@@ -11,6 +11,7 @@ const CustomThreeEarth = () => {
   const [animationRunning, setAnimationRunning] = useState(false);
 
   useEffect(() => {
+    console.log('Effect running...');
     let width = window.innerWidth;
     let height = window.innerHeight;
 
@@ -18,10 +19,13 @@ const CustomThreeEarth = () => {
     const camera = new THREE.PerspectiveCamera(70, width / height, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(width, height);
+    renderer.setPixelRatio(window.devicePixelRatio); // Improve rendering on high-DPI displays
     mountRef.current.appendChild(renderer.domElement);
+    console.log('Renderer appended to mountRef');
 
     const textureLoader = new THREE.TextureLoader();
     const earthTexture = textureLoader.load(code); // Ensure 'code' holds the correct path
+    console.log('Texture loaded:', earthTexture);
     const earthGeometry = new THREE.SphereGeometry(5, 32, 32);
     const earthMaterial = new THREE.MeshPhongMaterial({ map: earthTexture });
     const earth = new THREE.Mesh(earthGeometry, earthMaterial);
@@ -63,8 +67,13 @@ const CustomThreeEarth = () => {
     animate();
 
     return () => {
+      console.log('Cleanup...');
       window.removeEventListener('resize', handleResize);
       mountRef.current.removeChild(renderer.domElement);
+      // Dispose Three.js objects to prevent memory leaks
+      renderer.dispose();
+      earthGeometry.dispose();
+      earthMaterial.dispose();
     };
   }, []);
 

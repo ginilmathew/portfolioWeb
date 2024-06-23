@@ -56,7 +56,7 @@ const CustomThreeGeometry = () => {
     };
   }, []);
 
-  return <div ref={ mountRef } style={ { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: -1, } } />;
+  return <div ref={ mountRef } style={ { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: -1, height: '100%' } } />;
 }
 
 export default CustomThreeGeometry

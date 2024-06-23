@@ -1,11 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { Avatar, Box, Grid, Typography } from '@mui/material';
+import { Avatar, Box, Grid, Typography, Container } from '@mui/material';
 import { getProfile } from '../api/home';
 import { useQuery } from '@tanstack/react-query';
 import CustomThreeGeometry from '../components/Threejs/CustomThreeGeometry';
 import "./animation.css";
 import { IMAGEURL } from '../config';
+import CustomThreeStar from '../components/Threejs/CustomThreeStar';
 
 const HomeScreen = () => {
   // Data fetching using react-query
@@ -16,17 +17,19 @@ const HomeScreen = () => {
 
   const styles = {
     resumeContainer: {
-      height: '100vh',
+      minHeight: '100vh',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
+      // background: '#000'
     },
     leftSide: {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
       marginBottom: '20px',
+      marginTop: '50px',
     },
     avatar: {
       width: '100%',
@@ -55,55 +58,55 @@ const HomeScreen = () => {
     },
   };
 
-
-
   return (
-    <Box sx={ styles.resumeContainer }>
-      <CustomThreeGeometry />
-      {/* Left side */ }
-      <Grid item xs={ 12 } md={ 4 } sx={ styles.leftSide }>
-        <Avatar variant='square' src={ IMAGEURL + data?.data?.profileImg } alt="Profile Image" sx={ styles.avatar } />
-      </Grid>
-      {/* Right side */ }
-      <Grid item xs={ 12 } md={ 8 } sx={ styles.rightSide }>
-        {/* Display "Loading..." if data is still loading */ }
-        { isLoading ? (
-          <Typography variant="h6" sx={ { marginBottom: 2, color: '#fff', fontWeight: 'bold', letterSpacing: 1 } }>
-            Loading...
-          </Typography>
-        ) : (
-          <>
+    <Box sx={ [styles.resumeContainer, { px: 10 }] }>
+      <CustomThreeStar />
+      <Grid container spacing={ 3 }>
+        {/* Left side */ }
+        <Grid item xs={ 12 } md={ 4 } sx={ styles.leftSide }>
+          <Avatar variant='square' src={ IMAGEURL + data?.data?.profileImg } alt="Profile Image" sx={ styles.avatar } />
+        </Grid>
+        {/* Right side */ }
+        <Grid item xs={ 12 } md={ 8 } sx={ styles.rightSide }>
+          {/* Display "Loading..." if data is still loading */ }
+          { isLoading ? (
             <Typography variant="h6" sx={ { marginBottom: 2, color: '#fff', fontWeight: 'bold', letterSpacing: 1 } }>
-              { data?.data?.fullname }
+              Loading...
             </Typography>
-            <Typography
-              variant="h6"
-              sx={ {
-                marginBottom: 2,
-                color: "#fff",
-                fontWeight: 'bold',
-                '&.animated-text': {
-                  animation: 'zoomInOut 5s ease-in-out infinite',
-                },
-              } }
-              className="animated-text"
-            >
-              { data?.data?.designation }
-            </Typography>
-            <Typography variant="h7" sx={ { marginBottom: 2, color: '#fff', fontWeight: 'bold', letterSpacing: 1 } }>
-              About Me
-            </Typography>
-            <Typography variant="body1" sx={ { marginBottom: 2, color: '#fff', textAlign: 'justify', letterSpacing: 1, px: 3 } }>
-              { data?.data?.bio }
-            </Typography>
-            <Typography variant="h7" sx={ { color: '#fff', fontWeight: 'bold', pb: 2, letterSpacing: 1 } }>
-              Experience
-            </Typography>
-            <Typography sx={ { color: '#f5f5f5', fontSize: 18, letterSpacing: 1 } }>
-              { data?.data?.experience }
-            </Typography>
-          </>
-        ) }
+          ) : (
+            <>
+              <Typography variant="h6" sx={ { marginBottom: 2, color: '#fff', fontWeight: 'bold', letterSpacing: 1 } }>
+                { data?.data?.fullname }
+              </Typography>
+              <Typography
+                variant="h6"
+                sx={ {
+                  marginBottom: 2,
+                  color: "#fff",
+                  fontWeight: 'bold',
+                  '&.animated-text': {
+                    animation: 'zoomInOut 5s ease-in-out infinite',
+                  },
+                } }
+                className="animated-text"
+              >
+                { data?.data?.designation }
+              </Typography>
+              <Typography variant="h6" sx={ { marginBottom: 2, color: '#f50057', fontWeight: 'bold', letterSpacing: 1 } }>
+                About Me
+              </Typography>
+              <Typography variant="body1" sx={ { marginBottom: 2, color: '#fff', textAlign: 'justify', letterSpacing: 1, px: 3 } }>
+                { data?.data?.bio }
+              </Typography>
+              <Typography variant="h6" sx={ { color: '#f50057', fontWeight: 'bold', letterSpacing: 1, marginBottom: 2 } }>
+                Experience
+              </Typography>
+              <Typography sx={ { color: '#f5f5f5', fontSize: 18, letterSpacing: 1, paddingBottom: 5 } }>
+                { data?.data?.experience }
+              </Typography>
+            </>
+          ) }
+        </Grid>
       </Grid>
     </Box>
   );

@@ -20,7 +20,7 @@ const EducationScreen = () => {
     <Grid container justifyContent="center" alignItems="center" sx={ { height: '100vh' } }>
       <CustomThreeDecahedro />
       <Grid item xs={ 12 } md={ 84 } lg={ 4 } pt={ '9vh' } px={ 4 }>
-        <Grid container spacing={ 4 }>
+        <Grid container spacing={ 4 } pb={ 5 }>
           { data?.data?.data?.map((education) => (
             <Grid item key={ education._id } xs={ 12 }>
               <Box
