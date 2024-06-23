@@ -63,7 +63,7 @@ const HomeScreen = () => {
       <CustomThreeStar />
       <Grid container spacing={ 3 }>
         {/* Left side */ }
-        <Grid item xs={ 12 } md={ 4 } sx={ styles.leftSide }>
+        <Grid item xs={ 12 } md={ 4 } py={ 1 } sx={ styles.leftSide }>
           <Avatar variant='square' src={ IMAGEURL + data?.data?.profileImg } alt="Profile Image" sx={ styles.avatar } />
         </Grid>
         {/* Right side */ }
