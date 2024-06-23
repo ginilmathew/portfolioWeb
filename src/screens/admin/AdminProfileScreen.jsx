@@ -13,14 +13,30 @@ import * as yup from "yup";
 import CustomTextArea from '../../components/common/CustomTextArea'
 import { getuser, updateUser } from '../../api/user'
 const AdminProfileScreen = ({ hide }) => {
-  const { data } = useQuery({ queryKey: ['getProfile'], queryFn: getuser });
+
+
+  const { data, isPending } = useQuery({ queryKey: ['getProfile'], queryFn: getuser });
 
 
   const showSnackbar = useSnackbar();
   const queryClient = useQueryClient();
   const [selectedFile, setSelectedFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState('');
-  const [clodinaryUrl, setCloudinaryUrl] = useState('')
+  const { mutate } = useMutation({
+    mutationFn: updateUser,
+    onSuccess: async (data) => {
+      const jsonData = JSON.stringify(data?.data?.data);
+      localStorage.setItem('user', jsonData)
+      showSnackbar('Updated Successfully', 'success');
+      await queryClient.invalidateQueries({ queryKey: ["getProfile"] })
+
+    },
+    onError: (error, variables, context) => {
+      showSnackbar(error?.message, 'error');
+    },
+  });
+
+
 
   const schema = object().shape({
 
@@ -51,18 +67,6 @@ const AdminProfileScreen = ({ hide }) => {
   }, [data?.data])
 
 
-  const { mutate, isPending } = useMutation({
-    mutationFn: updateUser,
-    onSuccess: async (data) => {
-      showSnackbar('Updated Successfully', 'success');
-      await queryClient.invalidateQueries({ queryKey: ["getProfile"] })
-
-    },
-    onError: (error, variables, context) => {
-      showSnackbar(error?.message, 'error');
-    },
-  });
-
 
 
   // const handleFileInputChange = (event) => {
@@ -83,6 +87,10 @@ const AdminProfileScreen = ({ hide }) => {
 
   const submitForm = (dataForm) => {
     mutate(dataForm)
+  }
+
+  {
+    isPending && <> <CustomOutletBox /></>
   }
   return (
     <CustomOutletBox>
