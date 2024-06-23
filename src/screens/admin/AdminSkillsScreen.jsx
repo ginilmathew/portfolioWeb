@@ -126,7 +126,7 @@ const AdminSkillsScreen = () => {
 
   return (
     <CustomOutletBox>
-      <CustomAddButton ClickEvent={ openAdd } label={ 'Akldd' } justifyContent={ 'flex-end' } />
+      <CustomAddButton ClickEvent={ openAdd } label={ 'Add' } justifyContent={ 'flex-end' } />
       <DataTable
         rows={ data?.data?.data || [] }
         columns={ columns }

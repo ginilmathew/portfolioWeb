@@ -9,7 +9,7 @@ import { getProjectList } from '../api/project';
 
 const ProjectScreen = () => {
 
-  const { data, isError, isLoading, isFetched, refetch } = useQuery({
+  const { data } = useQuery({
     queryKey: ['projectList'],
     queryFn: getProjectList,
   });

@@ -2,7 +2,7 @@ import { Grid } from '@mui/material'
 import React from 'react'
 import CustomButton from './CustomButton'
 
-const CustomAddButton = ({ ClickEvent }) => {
+const CustomAddButton = ({ ClickEvent, label }) => {
   return (
     <Grid container py={ 1 } px={ 2 }>
       {/* Grid items for extra small devices (screen width < 600px) */ }
@@ -16,7 +16,7 @@ const CustomAddButton = ({ ClickEvent }) => {
         <CustomButton
           onClick={ ClickEvent }
           width="70%"
-          label="Add"
+          label={ label ? label : 'Add' }
           isIcon={ false }
         />
       </Grid>
