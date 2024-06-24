@@ -12,10 +12,11 @@ import { object } from "yup";
 import * as yup from "yup";
 import CustomTextArea from '../../components/common/CustomTextArea'
 import { getuser, updateUser } from '../../api/user'
+import CustomBackDrop from '../../components/common/CustomBackDrop'
 const AdminProfileScreen = ({ hide }) => {
 
 
-  const { data, isPending } = useQuery({ queryKey: ['getProfile'], queryFn: getuser });
+  const { data, isLoading } = useQuery({ queryKey: ['getProfile'], queryFn: getuser });
 
 
   const showSnackbar = useSnackbar();
@@ -89,9 +90,7 @@ const AdminProfileScreen = ({ hide }) => {
     mutate(dataForm)
   }
 
-  {
-    isPending && <> <CustomOutletBox /></>
-  }
+
   return (
     <CustomOutletBox>
       <CustomAddButton ClickEvent={ handleSubmit(submitForm) } label={ 'Update' } justifyContent={ 'flex-end' } />
@@ -159,6 +158,7 @@ const AdminProfileScreen = ({ hide }) => {
             />
           </Grid>
         </Grid>
+        { isLoading && <CustomBackDrop loading={ isLoading } /> }
       </Box>
     </CustomOutletBox>
   )

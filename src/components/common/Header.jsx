@@ -158,19 +158,49 @@ const Header = () => {
 
         {/* List of links */ }
         <List sx={ { width: 250 } }>
-          <ListItem button component={ Link } to="/home" sx={ linkStyle }>
+          <ListItem
+            button
+            component={ Link }
+            to="/home"
+            sx={ linkStyle }
+            onClick={ () => setMenuOpen(false) }  // Close drawer on link click
+          >
             <ListItemText primary="Home" />
           </ListItem>
-          <ListItem button component={ Link } to="/home/education" sx={ linkStyle }>
+          <ListItem
+            button
+            component={ Link }
+            to="/home/education"
+            sx={ linkStyle }
+            onClick={ () => setMenuOpen(false) }  // Close drawer on link click
+          >
             <ListItemText primary="Education" />
           </ListItem>
-          <ListItem button component={ Link } to="/home/skill" sx={ linkStyle }>
+          <ListItem
+            button
+            component={ Link }
+            to="/home/skill"
+            sx={ linkStyle }
+            onClick={ () => setMenuOpen(false) }  // Close drawer on link click
+          >
             <ListItemText primary="Skills" />
           </ListItem>
-          <ListItem button component={ Link } to="/home/project" sx={ linkStyle }>
+          <ListItem
+            button
+            component={ Link }
+            to="/home/project"
+            sx={ linkStyle }
+            onClick={ () => setMenuOpen(false) }  // Close drawer on link click
+          >
             <ListItemText primary="Projects" />
           </ListItem>
-          <ListItem button component={ Link } to="/home/aichat" sx={ linkStyle }>
+          <ListItem
+            button
+            component={ Link }
+            to="/home/aichat"
+            sx={ linkStyle }
+            onClick={ () => setMenuOpen(false) }  // Close drawer on link click
+          >
             <ListItemText primary="AI" />
           </ListItem>
         </List>

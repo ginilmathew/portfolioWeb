@@ -59,7 +59,7 @@ const HomeScreen = () => {
   };
 
   return (
-    <Box sx={ [styles.resumeContainer, { px: 10 }] }>
+    <Box sx={ [styles.resumeContainer, { px: { xl: 10, lg: 10, md: 4, xs: 2, sm: 2 } }] }>
       <CustomThreeStar />
       <Grid container spacing={ 3 }>
         {/* Left side */ }
