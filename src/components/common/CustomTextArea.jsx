@@ -30,7 +30,7 @@ const CustomTextArea = ({
     <>
       <FormGroup>
         <Stack direction={ 'row' } justifyContent={ 'space-between' } alignItems={ 'center' }>
-          <Typography fontFamily={ 'Raleway, sans-serif' } fontWeight={ '700' } px={ '3px' } mb={ '2px' }
+          <Typography fontFamily={ 'Outfit-Medium' } fontWeight={ '700' } px={ '3px' } mb={ '2px' }
             sx={ {
               fontSize: {
                 lg: 16,

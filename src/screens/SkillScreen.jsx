@@ -55,8 +55,8 @@ const SkillScreen = () => {
 
             } }
           >
-            <Typography sx={ { fontSize: 16, fontWeight: 'bold', color: "#fff", letterSpacing: .5, py: 1 } }>{ skill.name }</Typography>
-            <Typography sx={ { fontSize: 14, color: "#fff", letterSpacing: .5 } }>{ skill.proficiency }</Typography>
+            <Typography sx={ { fontSize: 16, fontFamily: 'Outfit-Bold', color: "#fff", letterSpacing: .5, py: 1 } }>{ skill.name }</Typography>
+            <Typography sx={ { fontSize: 14, color: "#fff", letterSpacing: 1, fontFamily: 'Outfit-Medium' } }>{ skill.proficiency }</Typography>
           </Box>
         )) }
       </Box>

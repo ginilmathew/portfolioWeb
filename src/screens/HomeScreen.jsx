@@ -68,9 +68,6 @@ const HomeScreen = () => {
     <Box sx={ [styles.resumeContainer, { px: { xl: 10, lg: 10, md: 4, xs: 2, sm: 2 } }] }>
       <CustomThreeStar />
       <Grid container spacing={ 3 } pt={ '9vh' }>
-
-
-
         {/* Left side */ }
         <Grid item xs={ 12 } md={ 4 } sx={ [styles.leftSide] }>
           <Avatar variant='square' src={ IMAGEURL + data?.data?.profileImg } alt="Profile Image" sx={ styles.avatar } />
@@ -84,7 +81,7 @@ const HomeScreen = () => {
             </Typography>
           ) : (
             <>
-              <Typography variant="h6" sx={ { marginBottom: 2, color: '#fff', fontWeight: 'bold', letterSpacing: 1 } }>
+              <Typography variant="h6" sx={ { marginBottom: 2, color: '#fff', fontFamily: 'Outfit-ExtraBold', letterSpacing: 1 } }>
                 { data?.data?.fullname }
               </Typography>
               <Typography
@@ -92,7 +89,7 @@ const HomeScreen = () => {
                 sx={ {
                   marginBottom: 2,
                   color: "#fff",
-                  fontWeight: 'bold',
+                  fontFamily: 'Outfit-ExtraBold',
                   '&.animated-text': {
                     animation: 'zoomInOut 5s ease-in-out infinite',
                   },
@@ -101,29 +98,30 @@ const HomeScreen = () => {
               >
                 { data?.data?.designation }
               </Typography>
-              <Typography variant="h6" sx={ { marginBottom: 2, color: '#f50057', fontWeight: 'bold', letterSpacing: 1 } }>
+              <Typography variant="h6" sx={ { marginBottom: 2, color: '#f50057', letterSpacing: 1, fontFamily: 'Outfit-ExtraBold' } }>
                 About Me
               </Typography>
-              <Typography variant="body1" sx={ { marginBottom: 2, color: '#fff', textAlign: 'justify', letterSpacing: 1, px: 3 } }>
+              <Typography variant="body1" sx={ { marginBottom: 2, color: '#fff', textAlign: 'justify', letterSpacing: 1, px: 3, fontFamily: 'Outfit-Regular' } }>
                 { data?.data?.bio }
               </Typography>
-              <Typography variant="h6" sx={ { color: '#f50057', fontWeight: 'bold', letterSpacing: 1, marginBottom: 2 } }>
+              <Typography variant="h6" sx={ { color: '#f50057', letterSpacing: 1, marginBottom: 2, fontFamily: 'Outfit-ExtraBold' } }>
                 Experience
               </Typography>
-              <Typography sx={ { color: '#f5f5f5', fontSize: 18, letterSpacing: 1, paddingBottom: 5 } }>
+              <Typography sx={ { color: '#f5f5f5', fontSize: 18, letterSpacing: 1, paddingBottom: 5, fontFamily: 'Regular' } }>
                 { data?.data?.experience }
               </Typography>
             </>
           ) }
         </Grid>
-        <Grid item xs={ 12 } md={ 12 } py={ 1 } sx={ { display: 'flex', justifyContent: 'flex-end' } }>
-          <CustomButton
-            onClick={ DownloadButton }
-            width={ { xl: "15%", lg: "15%", md: "25%", sm: "40%", xs: "100%" } }
-            label={ 'Downlode Resume' }
-            isIcon={ false }
-          />
-        </Grid>
+        { !isLoading &&
+          <Grid item xs={ 12 } md={ 12 } py={ 1 } sx={ { display: 'flex', justifyContent: 'flex-end' } }>
+            <CustomButton
+              onClick={ DownloadButton }
+              width={ { xl: "15%", lg: "15%", md: "25%", sm: "40%", xs: "100%" } }
+              label={ 'Downlode Resume' }
+              isIcon={ false }
+            />
+          </Grid> }
 
       </Grid>
     </Box>

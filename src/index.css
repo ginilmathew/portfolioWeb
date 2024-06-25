@@ -15,3 +15,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+@font-face {
+  font-family: Outfit-Bold;
+  src: url("./assets/fonts/static/Outfit-Bold.ttf");
+}
+@font-face {
+  font-family: Outfit-Regular;
+  src: url("./assets/fonts/static/Outfit-Regular.ttf");
+}
+@font-face {
+  font-family: Outfit-ExtraBold;
+  src: url("./assets/fonts/static/Outfit-ExtraBold.ttf");
+}
+@font-face {
+  font-family: Outfit-Medium;
+  src: url("./assets/fonts/static/Outfit-Medium.ttf");
+}
+@font-face {
+  font-family: Outfit-Light;
+  src: url("./assets/fonts/static/Outfit-Light.ttf");
+}
+
+.MuiDataGrid-columnHeaderTitle {
+  font-family: "Outfit-ExtraBold" !important;
+  font-size: medium !important;
+}

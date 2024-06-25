@@ -36,8 +36,7 @@ const CustomMultiSelect = ({
           sm: 13,
           xs: 12,
         },
-        fontFamily: 'Raleway, sans-serif',
-        fontWeight: "bold"
+        fontFamily: 'Outfit-Medium',
       } }>{ `${fieldLabel}` }</Typography>
       <Controller
         name={ fieldName }

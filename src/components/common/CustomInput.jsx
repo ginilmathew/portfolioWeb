@@ -23,7 +23,7 @@ const CustomInput = ({
   return (
     <>
       <FormGroup>
-        { !Not && <Typography fontFamily={ 'Raleway, sans-serif' } fontWeight={ '700' } px={ '3px' } mb={ '2px' }
+        { !Not && <Typography fontFamily={ 'Outfit-Medium' } fontWeight={ '700' } px={ '3px' } mb={ '2px' }
           sx={ {
             fontSize: {
               lg: 16,

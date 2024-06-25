@@ -101,6 +101,7 @@ export const ICONS = {
             fontSize: 30,
             cursor: 'pointer',
             color: COLORS?.secondary,
+            "&:hover": { color: "#f50057" },
 
         }
     },

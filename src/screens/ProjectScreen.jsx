@@ -45,20 +45,20 @@ const ProjectScreen = () => {
               >
 
                 <Box sx={ { padding: 2 } }> {/* Adjust padding for content */ }
-                  <Typography variant="h5" gutterBottom sx={ { textAlign: 'center', color: `hsl(${p * 100}, 90%, 60%)` } }>
+                  <Typography variant="h5" gutterBottom sx={ { textAlign: 'center', color: `hsl(${p * 100}, 60%, 50%)`, fontFamily: 'Outfit-Bold' } }>
                     { project.name }
                   </Typography>
-                  <Typography color="text.secondary" sx={ { textAlign: 'initial', mb: 1, fontSize: 16, color: '#fff', letterSpacing: .5 } }>
+                  <Typography color="text.secondary" sx={ { textAlign: 'initial', mb: 1, fontSize: 16, color: '#fff', letterSpacing: .5, fontFamily: 'Outfit-Regular' } }>
                     { project.details }
                   </Typography>
-                  <Typography variant="subtitle2" color="text.primary" sx={ { fontWeight: 'bold', mb: 1, color: '#fff' } }>
+                  <Typography variant="subtitle2" color="text.primary" sx={ { fontWeight: 'bold', mb: 1, color: '#fff', fontFamily: 'Outfit-Bold' } }>
                     Technologies Used:
                   </Typography>
                   <Box sx={ { display: 'flex', flexDirection: 'row', gap: 2, flexWrap: 'wrap', py: 1 } }>
                     { project?.technology_used?.map((tech, i) => (
                       <Box key={ tech._id } >
                         <Box>
-                          <Chip sx={ { color: `hsl(${i * 100}, 90%, 60%)` } } label={ tech.name } size="medium" variant="outlined" color="primary" />
+                          <Chip sx={ { color: `hsl(${i * 100}, 60%, 50%)` } } label={ tech.name } size="medium" variant="outlined" color="primary" />
                         </Box>
                       </Box>
                     )) }
