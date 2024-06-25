@@ -118,7 +118,7 @@ const Header = () => {
           >
             <Typography variant="h7">Projects</Typography>
           </Link>
-          <Link
+          {/* <Link
             to="/home/aichat"
             style={ {
               ...linkStyle,
@@ -128,7 +128,7 @@ const Header = () => {
             onMouseLeave={ handleMouseLeave }
           >
             <Typography variant="h7">AI</Typography>
-          </Link>
+          </Link> */}
         </>
       ) }
 
@@ -194,7 +194,7 @@ const Header = () => {
           >
             <ListItemText primary="Projects" />
           </ListItem>
-          <ListItem
+          {/* <ListItem
             button
             component={ Link }
             to="/home/aichat"
@@ -202,7 +202,7 @@ const Header = () => {
             onClick={ () => setMenuOpen(false) }  // Close drawer on link click
           >
             <ListItemText primary="AI" />
-          </ListItem>
+          </ListItem> */}
         </List>
       </Drawer>
     </Box>
