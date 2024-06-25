@@ -5,6 +5,7 @@ import { getAllSkill } from '../api/skill';
 import { useQuery } from '@tanstack/react-query';
 import CustomThreeDecahedro from '../components/Threejs/CustomThreeDecahedro';
 import CustomThreeStar from '../components/Threejs/CustomThreeStar';
+import SkillUserComponent from '../components/common/user/skill';
 
 
 
@@ -32,32 +33,7 @@ const SkillScreen = () => {
         } }
       >
         { data?.data?.data?.map((skill, index) => (
-          <Box
-            key={ skill._id }
-            height={ 80 }
-            width={ 200 }
-            sx={ {
-              backgroundColor: `hsl(${index * 30}, 65%, 70%)`, // Different color for each box
-              transition: 'transform 0.5s ease-in-out',
-              '&:hover': {
-                transform: 'scale(1.05)',
-                boxShadow: '0 0 10px rgba(0,0,0,0.5)' // Box-shadow effect on hover
-              },
-              boxShadow: 10,
-              borderRadius: 3,
-              padding: 2,
-              textAlign: 'center',
-              color: '#000',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-
-            } }
-          >
-            <Typography sx={ { fontSize: 16, fontFamily: 'Outfit-Bold', color: "#fff", letterSpacing: .5, py: 1 } }>{ skill.name }</Typography>
-            <Typography sx={ { fontSize: 14, color: "#fff", letterSpacing: 1, fontFamily: 'Outfit-Medium' } }>{ skill.proficiency }</Typography>
-          </Box>
+          <SkillUserComponent key={ index } skill={ skill } index={ index } />
         )) }
       </Box>
     </Box>
