@@ -22,7 +22,7 @@ const LandingScreen = () => {
   React.useEffect(() => {
     const timeoutID = window.setTimeout(() => {
       navigate('/home')
-    }, 5000);
+    }, 3000);
     return () => window.clearTimeout(timeoutID);
   }, []);
 
