@@ -36,7 +36,7 @@ const Sidebar = () => {
         <Box sx={ { position: 'fixed', width: '17.5vw' } }>
             <Box sx={ { height: 120, background: COLORS.primary, display: 'flex', alignItems: 'center', justifyContent: 'center' } }>
                 <Box sx={ { display: 'flex', gap: 1, alignItems: 'center' } }>
-                    <Avatar src={ IMAGEURL + parsedUser?.profileImg } variant='circular' sx={ { width: 90, height: 90, boxShadow: 8 } } />
+                    <Avatar src={ parsedUser?.profileImg } variant='circular' sx={ { width: 90, height: 90, boxShadow: 8 } } />
                     <Box>
                         <Typography sx={ [style.medium, { color: '#fff' }] }>{ parsedUser?.username }</Typography>
                     </Box>

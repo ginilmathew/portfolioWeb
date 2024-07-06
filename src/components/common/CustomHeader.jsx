@@ -73,7 +73,7 @@ const CustomHeader = () => {
                 <ICONS.FullscreenIcon.component sx={ ICONS.FullscreenIcon.sx } /></Tooltip>
             </Box>
             <Tooltip title={ 'Profile & Logout' }>
-              <Avatar src={ IMAGEURL + parsedUser?.profileImg } variant='circular' sx={ { width: 40, height: 40, cursor: 'pointer', boxShadow: 8 } } onClick={ handleIconButton } />  </Tooltip>
+              <Avatar src={ parsedUser?.profileImg } variant='circular' sx={ { width: 40, height: 40, cursor: 'pointer', boxShadow: 8 } } onClick={ handleIconButton } />  </Tooltip>
           </Box>
         </Hidden> }
       </Box>

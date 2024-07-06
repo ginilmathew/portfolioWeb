@@ -10,6 +10,8 @@ import { Controller } from "react-hook-form";
 const CustonImageUpload = ({ imageFile, onChangeImage, previewUrl, Not, fieldName,
   control, error,
   fieldLabel, }) => {
+
+  console.log({ previewUrl })
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handlePopoverOpen = (event) => {
@@ -60,7 +62,7 @@ const CustonImageUpload = ({ imageFile, onChangeImage, previewUrl, Not, fieldNam
           </Button>
         </label>
 
-        { imageFile && (
+        { (imageFile || previewUrl) && (
           <Box onMouseEnter={ handlePopoverOpen } onMouseLeave={ handlePopoverClose }>
             <Avatar variant='square' sx={ { width: 45, height: 30, objectFit: 'fill', cursor: 'pointer' } } src={ previewUrl } alt="Preview" />
             <Popover

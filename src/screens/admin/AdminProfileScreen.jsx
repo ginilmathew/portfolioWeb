@@ -60,9 +60,11 @@ const AdminProfileScreen = ({ hide }) => {
 
   });
 
+  console.log(data?.data, 'image Preview')
 
   useEffect(() => {
     if (data?.data) {
+      setPreviewUrl(data?.data?.profileImg)
       reset(data?.data)
     }
   }, [data?.data])
@@ -70,20 +72,20 @@ const AdminProfileScreen = ({ hide }) => {
 
 
 
-  // const handleFileInputChange = (event) => {
-  //   const file = event.target.files[0];
-  //   setSelectedFile(file);
-  //   if (file) {
-  //     const reader = new FileReader();
-  //     reader.onloadend = () => {
-  //       setPreviewUrl(reader.result);
-  //       setValue("profileImg", reader.result)
-  //     };
-  //     reader.readAsDataURL(file);
-  //   } else {
-  //     setPreviewUrl('');
-  //   }
-  // };
+  const handleFileInputChange = (event) => {
+    const file = event.target.files[0];
+    setSelectedFile(file);
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreviewUrl(reader.result);
+        setValue("profileImg", reader.result)
+      };
+      reader.readAsDataURL(file);
+    } else {
+      setPreviewUrl('');
+    }
+  };
 
 
   const submitForm = (dataForm) => {
@@ -133,7 +135,7 @@ const AdminProfileScreen = ({ hide }) => {
             />
           </Grid>
 
-          {/* 
+
           <Grid item xl={ 3 } lg={ 3 } md={ 3 } sm={ 12 } xs={ 12 }>
             <CustonImageUpload
               fieldLabel={ 'Image Upload' }
@@ -144,7 +146,7 @@ const AdminProfileScreen = ({ hide }) => {
               error={ errors.profileImg }
               fieldName="profileImg"
             />
-          </Grid> */}
+          </Grid>
           <Grid item xl={ 6 } lg={ 6 } md={ 6 } sm={ 12 } xs={ 12 }>
             <CustomTextArea
               readOnly={ true }

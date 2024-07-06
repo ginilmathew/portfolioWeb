@@ -33,13 +33,7 @@ const HomeScreen = () => {
       marginTop: { xl: '100px', lg: "100px", md: "10px", sm: "10px", xs: "10px" },
     },
     avatar: {
-      width: '100%',
-      height: 'auto',
-      maxWidth: '230px',
-      maxHeight: '230px',
-      objectFit: 'cover',
-      boxShadow: '5px 5px 10px rgba(0, 0, 0, 0.2)',
-      borderRadius: '50%',
+
       transition: 'transform 0.5s ease-in-out',
       '&:hover': {
         transform: 'scale(1.1)',
@@ -69,8 +63,8 @@ const HomeScreen = () => {
       <CustomThreeStar />
       <Grid container spacing={ 3 } pt={ '9vh' }>
         {/* Left side */ }
-        <Grid item xs={ 12 } md={ 4 } sx={ [styles.leftSide] }>
-          <Avatar variant='square' src={ data?.data?.profileImg } alt="Profile Image" sx={ styles.avatar } />
+        <Grid item xs={ 12 } md={ 4 } sx={ [styles.leftSide, { height: 300 }] }>
+          <Avatar variant='square' src={ data?.data?.profileImg } alt="Profile Image" sx={ [styles.avatar, { height: 250, width: 250, borderRadius: 20, objectFit: 'cover' }] } />
         </Grid>
         {/* Right side */ }
         <Grid item xs={ 12 } md={ 8 } sm={ 12 } sx={ styles.rightSide }>
