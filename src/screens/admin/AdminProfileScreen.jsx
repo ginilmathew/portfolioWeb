@@ -107,7 +107,7 @@ const AdminProfileScreen = ({ hide }) => {
 
     // Check if selectedFile exists and append it as profileImg
     if (selectedFile) {
-      formData.append('profileImg', dataForm.profileImg);
+      formData.append('profileImg', selectedFile);
     }
     mutate(formData)
   }
