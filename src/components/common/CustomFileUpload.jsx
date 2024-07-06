@@ -10,8 +10,6 @@ import { Controller } from "react-hook-form";
 const CustonImageUpload = ({ imageFile, onChangeImage, previewUrl, Not, fieldName,
   control, error,
   fieldLabel, }) => {
-
-  console.log({ previewUrl })
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handlePopoverOpen = (event) => {

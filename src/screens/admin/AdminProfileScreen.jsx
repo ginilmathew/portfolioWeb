@@ -23,6 +23,8 @@ const AdminProfileScreen = ({ hide }) => {
   const queryClient = useQueryClient();
   const [selectedFile, setSelectedFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState('');
+
+
   const { mutate } = useMutation({
     mutationFn: updateUser,
     onSuccess: async (data) => {
@@ -40,7 +42,7 @@ const AdminProfileScreen = ({ hide }) => {
 
 
   const schema = object().shape({
-
+    email: yup.string().required('Required')
   });
 
 
@@ -60,7 +62,6 @@ const AdminProfileScreen = ({ hide }) => {
 
   });
 
-  console.log(data?.data, 'image Preview')
 
   useEffect(() => {
     if (data?.data) {
@@ -89,7 +90,26 @@ const AdminProfileScreen = ({ hide }) => {
 
 
   const submitForm = (dataForm) => {
-    mutate(dataForm)
+    const formData = new FormData();
+
+    // Append each field from your JSON data
+    formData.append('_id', dataForm._id);
+    formData.append('username', dataForm.username);
+    formData.append('fullname', dataForm.fullname);
+    formData.append('email', dataForm.email);
+    formData.append('bio', dataForm.bio);
+    formData.append('experience', dataForm.experience);
+    formData.append('address', dataForm.address);
+    formData.append('alternative_no', dataForm.alternative_no);
+    formData.append('mobile', dataForm.mobile);
+    formData.append('designation', dataForm.designation);
+    formData.append('role', dataForm.role);
+
+    // Check if selectedFile exists and append it as profileImg
+    if (selectedFile) {
+      formData.append('profileImg', dataForm.profileImg);
+    }
+    mutate(formData)
   }
 
 

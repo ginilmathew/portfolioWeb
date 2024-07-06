@@ -15,6 +15,7 @@ const AiChatScreen = () => {
     onSuccess: async (data) => {
       const aiResponse = { text: data?.data?.data, type: 'ai' };
       setConversation([...conversation, aiResponse]);
+      toast.success('Check your request,Thank you!!!');
     },
     onError: (error, variables, context) => {
       toast.error('Sorry, something went wrong');
@@ -97,14 +98,30 @@ const AiChatScreen = () => {
               endAdornment: (
                 <>
                   { isPending && (
-                    <Box pl={ 5 } height={ 60 } display={ 'flex' } alignItems={ 'center' }>
+                    <Box
+                      pl={ 1 }
+                      pr={ 1 }
+
+                      sx={ { position: 'absolute', bottom: 30, right: 0, zIndex: 10 } }
+                      display="flex"
+                      justifyContent="flex-end"
+                    >
                       <CircularProgress size={ 24 } sx={ { position: 'absolute', right: 18, color: 'primary.main' } } />
                     </Box>
                   ) }
                   { !isPending && (
-                    <IconButton aria-label="send message" color="primary" onClick={ send }>
-                      <SendIcon />
-                    </IconButton>
+                    <Box
+                      pl={ 1 }
+                      pr={ 1 }
+                      pb={ 1 }
+                      sx={ { position: 'absolute', bottom: 5, right: 0, zIndex: 10 } }
+                      display="flex"
+                      justifyContent="flex-end"
+                    >
+                      <IconButton aria-label="send message" color="primary" onClick={ send }>
+                        <SendIcon />
+                      </IconButton>
+                    </Box>
                   ) }
                 </>
               ),
