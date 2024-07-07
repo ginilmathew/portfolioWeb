@@ -1,11 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { Avatar, Box, Grid, Typography, Container, Button, Hidden } from '@mui/material';
+import { Avatar, Box, Grid, Typography, Container, Button, Hidden, IconButton } from '@mui/material';
 import { getProfile } from '../api/home';
 import { useQuery } from '@tanstack/react-query';
-import CustomThreeGeometry from '../components/Threejs/CustomThreeGeometry';
+import { Visibility } from '@mui/icons-material';
 import "./animation.css";
-import { BASE_URL, IMAGEURL } from '../config';
 import CustomThreeStar from '../components/Threejs/CustomThreeStar';
 import CustomButton from '../components/common/CustomButton';
 import pdf from '../assets/pdf/ginil.pdf'
@@ -56,6 +55,8 @@ const HomeScreen = () => {
   const DownloadButton = () => {
     window.open(pdf, '_blank');
   };
+
+  console.log({ data: data?.data })
 
 
   return (
@@ -118,6 +119,27 @@ const HomeScreen = () => {
           </Grid> }
 
       </Grid>
+      <Box
+        sx={ {
+          position: 'absolute',
+          bottom: 0,
+          right: 20,
+          backgroundColor: 'transparent', // Set background color to transparent
+          color: '#fff',
+          padding: '8px 16px',
+          borderRadius: '4px',
+          fontSize: '1.2rem',
+          fontWeight: 'bold',
+          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+          zIndex: 999,
+          animation: 'fadeIn 1s ease-in-out', // Animation to fade in
+          display: 'flex',
+          alignItems: 'center',
+        } }
+      >
+        <Visibility fontSize="small" />
+        <Typography sx={ { mx: 1 } }>{ data?.data?.visitCount }</Typography>
+      </Box>
     </Box>
   );
 };
