@@ -10,6 +10,9 @@ import toast from 'react-hot-toast';
 const AiChatScreen = () => {
   const [conversation, setConversation] = useState([]);
   const [text, setText] = useState('');
+
+
+
   const { mutate, isPending } = useMutation({
     mutationFn: PostAi,
     onSuccess: async (data) => {
@@ -18,7 +21,7 @@ const AiChatScreen = () => {
       toast.success('Check your request,Thank you!!!');
     },
     onError: (error, variables, context) => {
-      toast.error('Sorry, something went wrong');
+      toast.error(error.message, 'Sorry, something went wrong');
     },
   });
 
