@@ -118,7 +118,7 @@ const Header = () => {
           >
             <Typography variant="h7">Projects</Typography>
           </Link>
-          {/* <Link
+          <Link
             to="/home/aichat"
             style={ {
               ...linkStyle,
@@ -128,7 +128,7 @@ const Header = () => {
             onMouseLeave={ handleMouseLeave }
           >
             <Typography variant="h7">AI</Typography>
-          </Link> */}
+          </Link>
         </>
       ) }
 
