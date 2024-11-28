@@ -178,7 +178,7 @@ const AiChatScreen = () => {
             flex: 1,
             mr: 2,
             '& .MuiOutlinedInput-root': {
-              borderRadius: 25,
+              borderRadius: 10,
               backgroundColor: '#f9f9f9',
             },
           } }
