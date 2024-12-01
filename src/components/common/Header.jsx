@@ -123,6 +123,7 @@ const Header = () => {
             style={ {
               ...linkStyle,
               color: isActive('/home/aichat') || hovered === 4 ? '#f50057' : '#fff',
+              marginRight: 20, // Add margin between links
             } }
             onMouseEnter={ () => handleMouseEnter(4) }
             onMouseLeave={ handleMouseLeave }
