@@ -2,6 +2,7 @@ export const env = "dev"
 
 const url = {
   dev: "https://portfolio-fnju.onrender.com/api/",
+  vercel: "https://portfoliopowerdbyginil.vercel.app/"
 }
 
 const IMAGE = {

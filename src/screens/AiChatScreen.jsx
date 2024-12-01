@@ -136,7 +136,7 @@ const AiChatScreen = () => {
         sx={ {
           flexGrow: 1,
           overflowY: 'auto',
-          p: 3,
+          pt: '9vh',
         } }
       >
         { conversation.length ? (

@@ -129,6 +129,17 @@ const Header = () => {
           >
             <Typography variant="h7">AI</Typography>
           </Link>
+          <Link
+            to="/home/wifiHotspot"
+            style={ {
+              ...linkStyle,
+              color: isActive('/home/wifiHotspot') || hovered === 5 ? '#f50057' : '#fff',
+            } }
+            onMouseEnter={ () => handleMouseEnter(5) }
+            onMouseLeave={ handleMouseLeave }
+          >
+            <Typography variant="h7">Hotspot</Typography>
+          </Link>
         </>
       ) }
 

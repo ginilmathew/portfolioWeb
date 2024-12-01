@@ -14,6 +14,7 @@ import AdminProfileScreen from "../screens/admin/AdminProfileScreen";
 import AdminProjectsScreen from "../screens/admin/AdminProjectsScreen";
 import AdminEducationScreen from "../screens/admin/AdminEducationScreen";
 import ProtectedRouter from "./protectedRoutes";
+import Wificreen from "../screens/WifiScreen";
 
 
 export const router = createBrowserRouter([
@@ -55,6 +56,11 @@ export const router = createBrowserRouter([
         path: "aichat",
         element: <AiChatScreen />
       },
+      {
+        path: "wifiHotspot",
+        element: <Wificreen />
+      },
+
     ]
   },
   {
