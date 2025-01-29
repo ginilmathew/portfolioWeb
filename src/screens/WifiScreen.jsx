@@ -65,9 +65,9 @@ const Wificreen = () => {
 
       <Container sx={ { pt: '9vh' } }>
         <Typography variant="h4" align="center" gutterBottom>
-          Wi-Fi Hotspot Manager
+         Development In Progress
         </Typography>
-        <Box>
+        {/* <Box>
           <Grid container spacing={ 2 }>
             <Grid item xs={ 12 }>
               <TextField
@@ -132,7 +132,7 @@ const Wificreen = () => {
               </Button>
             </Grid>
           </Grid>
-        </Box>
+        </Box> */}
         <Box mt={ 3 } display="flex" justifyContent="space-between">
           <Button
             variant="contained"
