@@ -133,7 +133,7 @@ const Wificreen = () => {
             </Grid>
           </Grid>
         </Box> */}
-        <Box mt={ 3 } display="flex" justifyContent="space-between">
+{/*         <Box mt={ 3 } display="flex" justifyContent="space-between">
           <Button
             variant="contained"
             color="success"
@@ -148,7 +148,7 @@ const Wificreen = () => {
           >
             Stop Hotspot
           </Button>
-        </Box>
+        </Box> */}
       </Container>
 
     </Box>
