@@ -1,12 +1,13 @@
-export const env = "dev"
+export const env = "vercel"
 
 const url = {
   dev: "https://portfolio-fnju.onrender.com/api/",
-  vercel: "https://portfoliopowerdbyginil.vercel.app/"
+  vercel: "https://portfolio-dtga8e9n7-ginilmathew3s-projects.vercel.app/"
 }
 
 const IMAGE = {
   dev: 'https://portfolio-fnju.onrender.com/images/',
+   vercel: "https://portfolio-dtga8e9n7-ginilmathew3s-projects.vercel.app/"
 
 }
 
