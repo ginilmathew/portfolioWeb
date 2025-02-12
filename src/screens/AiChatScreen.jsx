@@ -154,13 +154,13 @@ const AiChatScreen = () => {
           conversation.map((msg, index) => renderMessage(msg, index))
         ) : (
           <Typography
-            variant="body2"
-            color="textSecondary"
-            align="center"
-            sx={{ mt: 5 }}
-          >
-            Start a conversation with our AI assistant.
-          </Typography>
+  variant="body2"
+  color="textSecondary"
+  align="center"
+  sx={{ mt: 5 }}
+>
+  Start chatting with GinAI 2.0 – faster, smarter, and designed for seamless, continuous conversations. Enjoy the future of AI interaction!
+</Typography>
         )}
       </Box>
 
