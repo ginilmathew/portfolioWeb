@@ -33,12 +33,20 @@ const AiChatScreen = () => {
 
   const send = async () => {
     if (!text.trim()) return;
+
+    // Add the user's message to the conversation
     const newMessage = { text, type: 'user' };
     setConversation((prev) => [...prev, newMessage]);
     setText('');
 
     try {
-      await mutate({ prompt: text });
+      // Format the conversation history for the API
+      const conversationHistory = conversation
+        .map((msg) => `${msg.type === 'user' ? 'You' : 'AI'}: ${msg.text}`)
+        .join('\n');
+
+      // Send the conversation history along with the new message
+      await mutate({ prompt: `${conversationHistory}\nYou: ${text}` });
     } catch (error) {
       toast.error('Unable to send the message.');
     }
