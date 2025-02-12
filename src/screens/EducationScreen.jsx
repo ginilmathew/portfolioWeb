@@ -14,7 +14,7 @@ const EducationScreen = () => {
   });
 
   return (
-    <Box sx={{ height: '100vh', overflow: 'hidden', position: 'relative',mb:100 }}>
+    <Box sx={{ height: '100vh', overflow: 'hidden', position: 'relative',mb:10 }}>
       <CustomThreeStar />
       <Box
         sx={{
