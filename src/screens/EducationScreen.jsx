@@ -1,11 +1,13 @@
 import React from 'react';
-import { Box, Grid, Typography, useTheme } from '@mui/material';
+import { Box, Grid, Typography, useTheme, useMediaQuery } from '@mui/material';
 import { getEducationList } from '../api/education';
 import { useQuery } from '@tanstack/react-query';
 import CustomThreeStar from '../components/Threejs/CustomThreeStar';
 
 const EducationScreen = () => {
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   const { data, isError, isLoading, isFetched, refetch } = useQuery({
     queryKey: ['educationList'],
     queryFn: getEducationList,
@@ -25,15 +27,24 @@ const EducationScreen = () => {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          padding: 4,
+          padding: isMobile ? 2 : 4,
         }}
       >
-        <Typography variant="h3" sx={{ fontWeight: 'bold', textAlign: 'center', mb: 6, color: theme.palette.text.primary }}>
+        <Typography
+          variant={isMobile ? 'h4' : 'h3'}
+          sx={{
+            fontWeight: 'bold',
+            textAlign: 'center',
+            mb: isMobile ? 4 : 6,
+            color: theme.palette.text.primary,
+            fontFamily: 'Inter, sans-serif',
+          }}
+        >
           Education
         </Typography>
         <Grid
           container
-          spacing={4}
+          spacing={isMobile ? 2 : 4}
           sx={{
             width: '100%',
             maxWidth: '1200px',
@@ -45,30 +56,51 @@ const EducationScreen = () => {
             <Grid item key={education._id} xs={12} sm={6} md={4}>
               <Box
                 sx={{
-                  background: theme.palette.background.paper,
+                  background: `linear-gradient(145deg, ${theme.palette.background.paper}, ${theme.palette.grey[100]})`,
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-5px)',
-                    boxShadow: '0 10px 20px rgba(0,0,0,0.15)',
+                    boxShadow: '0 12px 24px rgba(0,0,0,0.2)',
                   },
                   borderRadius: 2,
-                  padding: 3,
+                  padding: isMobile ? 2 : 3,
                   textAlign: 'center',
                   color: theme.palette.text.primary,
                   boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
                   border: `1px solid ${theme.palette.divider}`,
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
                 }}
               >
-                <Typography variant="h5" sx={{ fontWeight: 'bold', letterSpacing: 0.5, mb: 2 }}>
+                <Typography
+                  variant={isMobile ? 'h6' : 'h5'}
+                  sx={{
+                    fontWeight: 'bold',
+                    letterSpacing: 0.5,
+                    mb: 2,
+                    fontFamily: 'Inter, sans-serif',
+                  }}
+                >
                   {education.name}
                 </Typography>
-                <Typography variant="subtitle1" sx={{ mb: 2, color: theme.palette.text.secondary }}>
+                <Typography
+                  variant={isMobile ? 'body2' : 'subtitle1'}
+                  sx={{ mb: 2, color: theme.palette.text.secondary }}
+                >
                   {education?.place}
                 </Typography>
-                <Typography variant="body1" sx={{ mb: 2 }}>
+                <Typography
+                  variant={isMobile ? 'body2' : 'body1'}
+                  sx={{ mb: 2, fontFamily: 'Inter, sans-serif' }}
+                >
                   {`${education.course}, ${education.marks_percentage}%`}
                 </Typography>
-                <Typography variant="body2" sx={{ color: theme.palette.text.secondary }}>
+                <Typography
+                  variant={isMobile ? 'caption' : 'body2'}
+                  sx={{ color: theme.palette.text.secondary }}
+                >
                   {education.presentDate}
                 </Typography>
               </Box>
