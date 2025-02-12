@@ -79,11 +79,11 @@ const AiChatScreen = () => {
         elevation={3}
         sx={{
           p: 2,
-          backgroundColor: msg.type === 'user' ? theme.palette.primary.main : theme.palette.grey[100],
-          color: msg.type === 'user' ? '#fff' : theme.palette.text.primary,
+          backgroundColor: msg.type === 'user' ? '#0078D4' : '#f1f1f1',
+          color: msg.type === 'user' ? '#fff' : '#000',
           maxWidth: '80%',
           borderRadius: msg.type === 'user' ? '15px 15px 0 15px' : '15px 15px 15px 0',
-          boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
           position: 'relative',
           fontFamily: 'Inter, sans-serif',
         }}
@@ -138,7 +138,7 @@ const AiChatScreen = () => {
         height: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        background: theme.palette.background.default,
+        background: 'linear-gradient(135deg, #f3f8fe, #e9eef3)',
       }}
     >
       {/* Chat Area */}
@@ -154,13 +154,13 @@ const AiChatScreen = () => {
           conversation.map((msg, index) => renderMessage(msg, index))
         ) : (
           <Typography
-  variant="body2"
-  color="textSecondary"
-  align="center"
-  sx={{ mt: 5 }}
->
-  Start chatting with GinAI 2.0 – faster, smarter, and designed for seamless, continuous conversations. Enjoy the future of AI interaction!
-</Typography>
+            variant="body2"
+            color="textSecondary"
+            align="center"
+            sx={{ mt: 5 }}
+          >
+            Start chatting with GinAI 2.0 – faster, smarter, and designed for seamless, continuous conversations. Enjoy the future of AI interaction!
+          </Typography>
         )}
       </Box>
 
@@ -171,8 +171,8 @@ const AiChatScreen = () => {
           alignItems: 'center',
           px: isMobile ? 1 : 3,
           py: 2,
-          borderTop: `1px solid ${theme.palette.divider}`,
-          background: theme.palette.background.paper,
+          borderTop: '1px solid #ddd',
+          background: '#ffffff',
         }}
       >
         <TextField
@@ -190,7 +190,7 @@ const AiChatScreen = () => {
             mr: 2,
             '& .MuiOutlinedInput-root': {
               borderRadius: 10,
-              backgroundColor: theme.palette.grey[100],
+              backgroundColor: '#f9f9f9',
             },
           }}
         />
