@@ -71,21 +71,22 @@ const AiChatScreen = () => {
       sx={{
         display: 'flex',
         justifyContent: msg.type === 'user' ? 'flex-end' : 'flex-start',
-        mb: 2,
+        mb: 1.5, // Reduced margin bottom
         px: isMobile ? 1 : 2,
       }}
     >
       <Paper
         elevation={3}
         sx={{
-          p: 2,
+          p: 1.5, // Reduced padding
           backgroundColor: msg.type === 'user' ? '#0078D4' : '#f1f1f1',
           color: msg.type === 'user' ? '#fff' : '#000',
           maxWidth: '80%',
-          borderRadius: msg.type === 'user' ? '15px 15px 0 15px' : '15px 15px 15px 0',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+          borderRadius: msg.type === 'user' ? '12px 12px 0 12px' : '12px 12px 12px 0', // Smaller radius
+          boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Lighter shadow
           position: 'relative',
           fontFamily: 'Inter, sans-serif',
+          fontSize: '0.9rem', // Smaller font size
         }}
       >
         <ReactMarkdown
@@ -146,8 +147,8 @@ const AiChatScreen = () => {
         sx={{
           flexGrow: 1,
           overflowY: 'auto',
-          pt: isMobile ? '7vh' : '9vh',
-          px: isMobile ? 1 : 3,
+          pt: isMobile ? '6vh' : '8vh', // Reduced padding top
+          px: isMobile ? 1 : 2, // Reduced padding
         }}
       >
         {conversation.length ? (
@@ -157,7 +158,7 @@ const AiChatScreen = () => {
             variant="body2"
             color="textSecondary"
             align="center"
-            sx={{ mt: 5 }}
+            sx={{ mt: 4, fontSize: '0.9rem' }} // Smaller font size
           >
             Start chatting with GinAI 2.0 – faster, smarter, and designed for seamless, continuous conversations. Enjoy the future of AI interaction!
           </Typography>
@@ -169,8 +170,8 @@ const AiChatScreen = () => {
         sx={{
           display: 'flex',
           alignItems: 'center',
-          px: isMobile ? 1 : 3,
-          py: 2,
+          px: isMobile ? 1 : 2, // Reduced padding
+          py: 1.5, // Reduced padding
           borderTop: '1px solid #ddd',
           background: '#ffffff',
         }}
@@ -178,7 +179,7 @@ const AiChatScreen = () => {
         <TextField
           multiline
           minRows={1}
-          maxRows={5}
+          maxRows={4} // Reduced max rows
           onKeyDown={handleKeyDown}
           onChange={onchngeText}
           value={text}
@@ -187,10 +188,11 @@ const AiChatScreen = () => {
           variant="outlined"
           sx={{
             flex: 1,
-            mr: 2,
+            mr: 1.5, // Reduced margin
             '& .MuiOutlinedInput-root': {
-              borderRadius: 10,
+              borderRadius: 8, // Smaller radius
               backgroundColor: '#f9f9f9',
+              fontSize: '0.9rem', // Smaller font size
             },
           }}
         />
@@ -199,8 +201,8 @@ const AiChatScreen = () => {
           onClick={send}
           disabled={!text.trim() || isPending}
           sx={{
-            width: 50,
-            height: 50,
+            width: 40, // Smaller button
+            height: 40, // Smaller button
             borderRadius: '50%',
             backgroundColor: 'primary.main',
             color: 'white',
@@ -209,7 +211,7 @@ const AiChatScreen = () => {
             },
           }}
         >
-          {isPending ? <CircularProgress size={24} color="inherit" /> : <SendIcon />}
+          {isPending ? <CircularProgress size={20} color="inherit" /> : <SendIcon />}
         </IconButton>
       </Box>
     </Box>
