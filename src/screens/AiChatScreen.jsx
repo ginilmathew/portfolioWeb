@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { Box, TextField, IconButton, CircularProgress, Paper, Typography, Tooltip } from '@mui/material';
+import { Box, TextField, IconButton, CircularProgress, Paper, Typography, Tooltip, useTheme, useMediaQuery } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import { useMutation } from '@tanstack/react-query';
@@ -12,6 +12,8 @@ import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 const AiChatScreen = () => {
   const [conversation, setConversation] = useState([]);
   const [text, setText] = useState('');
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const { mutate, isPending } = useMutation({
     mutationFn: PostAi,
@@ -57,45 +59,45 @@ const AiChatScreen = () => {
 
   const renderMessage = (msg, index) => (
     <Box
-      key={ index }
-      sx={ {
+      key={index}
+      sx={{
         display: 'flex',
         justifyContent: msg.type === 'user' ? 'flex-end' : 'flex-start',
         mb: 2,
-      } }
+        px: isMobile ? 1 : 2,
+      }}
     >
       <Paper
-        elevation={ 3 }
-        sx={ {
-          mt: 5,
+        elevation={3}
+        sx={{
           p: 2,
-          backgroundColor: msg.type === 'user' ? '#0078D4' : '#f1f1f1',
-          color: msg.type === 'user' ? '#fff' : '#000',
-          maxWidth: '70%',
-          borderRadius: '15px',
+          backgroundColor: msg.type === 'user' ? theme.palette.primary.main : theme.palette.grey[100],
+          color: msg.type === 'user' ? '#fff' : theme.palette.text.primary,
+          maxWidth: '80%',
+          borderRadius: msg.type === 'user' ? '15px 15px 0 15px' : '15px 15px 15px 0',
           boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
           position: 'relative',
           fontFamily: 'Inter, sans-serif',
-        } }
+        }}
       >
         <ReactMarkdown
-          children={ msg.text }
-          components={ {
-            code ({ node, inline, className, children, ...props }) {
+          children={msg.text}
+          components={{
+            code({ node, inline, className, children, ...props }) {
               const match = /language-(\w+)/.exec(className || '');
               return !inline && match ? (
-                <Box sx={ { position: 'relative' } }>
+                <Box sx={{ position: 'relative' }}>
                   <SyntaxHighlighter
-                    style={ materialDark }
-                    language={ match[1] }
-                    children={ String(children).replace(/\n$/, '') }
-                    { ...props }
+                    style={materialDark}
+                    language={match[1]}
+                    children={String(children).replace(/\n$/, '')}
+                    {...props}
                   />
                   <Tooltip title="Copy code" placement="top" arrow>
                     <IconButton
-                      onClick={ () => copyToClipboard(String(children)) }
+                      onClick={() => copyToClipboard(String(children))}
                       size="small"
-                      sx={ {
+                      sx={{
                         position: 'absolute',
                         top: 5,
                         right: 5,
@@ -104,19 +106,19 @@ const AiChatScreen = () => {
                         '&:hover': {
                           backgroundColor: 'rgba(0, 0, 0, 0.8)',
                         },
-                      } }
+                      }}
                     >
                       <ContentCopyIcon fontSize="small" />
                     </IconButton>
                   </Tooltip>
                 </Box>
               ) : (
-                <code className={ className } { ...props }>
-                  { children }
+                <code className={className} {...props}>
+                  {children}
                 </code>
               );
             },
-          } }
+          }}
         />
       </Paper>
     </Box>
@@ -124,70 +126,71 @@ const AiChatScreen = () => {
 
   return (
     <Box
-      sx={ {
+      sx={{
         height: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        background: 'linear-gradient(135deg, #f3f8fe, #e9eef3)',
-      } }
+        background: theme.palette.background.default,
+      }}
     >
-      {/* Chat Area */ }
+      {/* Chat Area */}
       <Box
-        sx={ {
+        sx={{
           flexGrow: 1,
           overflowY: 'auto',
-          pt: '9vh',
-        } }
+          pt: isMobile ? '7vh' : '9vh',
+          px: isMobile ? 1 : 3,
+        }}
       >
-        { conversation.length ? (
+        {conversation.length ? (
           conversation.map((msg, index) => renderMessage(msg, index))
         ) : (
           <Typography
             variant="body2"
             color="textSecondary"
             align="center"
-            sx={ { mt: 5 } }
+            sx={{ mt: 5 }}
           >
             Start a conversation with our AI assistant.
           </Typography>
-        ) }
+        )}
       </Box>
 
-      {/* Input Area */ }
+      {/* Input Area */}
       <Box
-        sx={ {
+        sx={{
           display: 'flex',
           alignItems: 'center',
-          px: 3,
+          px: isMobile ? 1 : 3,
           py: 2,
-          borderTop: '1px solid #ddd',
-          background: '#ffffff',
-        } }
+          borderTop: `1px solid ${theme.palette.divider}`,
+          background: theme.palette.background.paper,
+        }}
       >
         <TextField
           multiline
-          minRows={ 1 }
-          maxRows={ 5 }
-          onKeyDown={ handleKeyDown }
-          onChange={ onchngeText }
-          value={ text }
+          minRows={1}
+          maxRows={5}
+          onKeyDown={handleKeyDown}
+          onChange={onchngeText}
+          value={text}
           placeholder="Type a message..."
           fullWidth
           variant="outlined"
-          sx={ {
+          sx={{
             flex: 1,
             mr: 2,
             '& .MuiOutlinedInput-root': {
               borderRadius: 10,
-              backgroundColor: '#f9f9f9',
+              backgroundColor: theme.palette.grey[100],
             },
-          } }
+          }}
         />
         <IconButton
           color="primary"
-          onClick={ send }
-          disabled={ !text.trim() || isPending }
-          sx={ {
+          onClick={send}
+          disabled={!text.trim() || isPending}
+          sx={{
             width: 50,
             height: 50,
             borderRadius: '50%',
@@ -196,9 +199,9 @@ const AiChatScreen = () => {
             '&:hover': {
               backgroundColor: 'primary.dark',
             },
-          } }
+          }}
         >
-          { isPending ? <CircularProgress size={ 24 } color="inherit" /> : <SendIcon /> }
+          {isPending ? <CircularProgress size={24} color="inherit" /> : <SendIcon />}
         </IconButton>
       </Box>
     </Box>
