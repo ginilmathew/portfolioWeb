@@ -130,7 +130,7 @@ const Header = () => {
           >
             <Typography variant="h7">AI</Typography>
           </Link>
-          <Link
+          {/* <Link
             to="/home/wifiHotspot"
             style={ {
               ...linkStyle,
@@ -140,7 +140,20 @@ const Header = () => {
             onMouseLeave={ handleMouseLeave }
           >
             <Typography variant="h7">Hotspot</Typography>
+          </Link> */}
+             <Link
+            to="/home/youtube"
+            style={ {
+              ...linkStyle,
+              color: isActive('/home/youtube') || hovered === 4 ? '#f50057' : '#fff',
+              marginRight: 20, // Add margin between links
+            } }
+            onMouseEnter={ () => handleMouseEnter(4) }
+            onMouseLeave={ handleMouseLeave }
+          >
+            <Typography variant="h7">YouTube</Typography>
           </Link>
+
         </>
       ) }
 

@@ -11,6 +11,7 @@ export const SideBarMenu = [
     { path: "/admin/skill", icon: DevicesIcon, text: 'Skill', subMenuItems: [] },
     { path: "/admin/project", icon: DeveloperModeIcon, text: 'Projects', subMenuItems: [] },
     { path: "/admin/profile", icon: AssignmentIndIcon, text: 'profile', subMenuItems: [] },
+    { path: "/admin/youtube", icon: AssignmentIndIcon, text: 'youtube', subMenuItems: [] },
 
 ];
 
