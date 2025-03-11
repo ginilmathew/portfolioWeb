@@ -248,8 +248,8 @@ const Youtube = () => {
                     onClick={toggleFullScreen}
                     sx={{
                       position: 'absolute',
-                      bottom: 16,
-                      right: 16,
+                      bottom: '50%',
+                      right: '50%',
                       backgroundColor: 'rgba(255,255,255,0.2)',
                       color: 'white',
                       '&:hover': {
