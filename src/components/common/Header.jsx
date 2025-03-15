@@ -153,6 +153,19 @@ const Header = () => {
           >
             <Typography variant="h7">YouTube</Typography>
           </Link>
+          {/* <Link
+            to="/home/browser"
+            style={ {
+              ...linkStyle,
+              color: isActive('/home/browser') || hovered === 4 ? '#f50057' : '#fff',
+              marginRight: 20, // Add margin between links
+            } }
+            onMouseEnter={ () => handleMouseEnter(4) }
+            onMouseLeave={ handleMouseLeave }
+          >
+            <Typography variant="h7">Browser</Typography>
+          </Link> */}
+
 
         </>
       ) }
@@ -219,6 +232,7 @@ const Header = () => {
           >
             <ListItemText primary="Projects" />
           </ListItem>
+          
           {/* <ListItem
             button
             component={ Link }

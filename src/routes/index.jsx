@@ -16,6 +16,7 @@ import AdminEducationScreen from "../screens/admin/AdminEducationScreen";
 import ProtectedRouter from "./protectedRoutes";
 import Wificreen from "../screens/WifiScreen";
 import Youtube from "../screens/YoutubeScreen";
+import BrowserScreen from "../screens/BrowserScreen";
 
 
 export const router = createBrowserRouter([
@@ -64,6 +65,10 @@ export const router = createBrowserRouter([
       {
         path: "youtube",
         element: <Youtube />
+      },
+      {
+        path: "browser",
+        element: <BrowserScreen />
       },
 
     ]
