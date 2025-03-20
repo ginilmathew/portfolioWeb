@@ -18,6 +18,8 @@ import {
   Clear as ClearIcon,
   Mic as MicIcon,
 } from '@mui/icons-material';
+import { postBrowser } from '../api/browser';
+import { BASE_URL } from '../config';
 
 const BrowserScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -32,7 +34,7 @@ const BrowserScreen = () => {
       setIsLoading(true);
       
       try {
-        const response = await fetch(`http://localhost:3001/search?q=${encodeURIComponent(searchQuery)}`);
+        const response = await fetch(`${BASE_URL}browser/browser-ginil/search?q=${encodeURIComponent(searchQuery)}`);
         const data = await response.json();
         setSearchResults(data);
       } catch (error) {
@@ -43,6 +45,21 @@ const BrowserScreen = () => {
       }
     }
   };
+
+
+
+  // const { mutate, isPending } = useMutation({
+  //   mutationFn: postBrowser,
+  //   onSuccess: async (data) => {
+  //     const aiResponse = { text: data?.data?.data, type: 'ai' };
+  //     setConversation((prev) => [...prev, aiResponse]);
+  //     toast.success('AI response received.');
+  //   },
+  //   onError: () => {
+  //     toast.error('Something went wrong. Please try again.');
+  //   },
+  // });
+
 
   const handleClearSearch = () => {
     setSearchQuery('');
