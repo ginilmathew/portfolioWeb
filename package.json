@@ -1,61 +1,15 @@
 {
-  "name": "portfolio",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@emotion/react": "^11.13.3",
-    "@emotion/styled": "^11.13.0",
-    "@hookform/resolvers": "^3.6.0",
-    "@mui/base": "^5.0.0-beta.59",
-    "@mui/icons-material": "^5.16.7",
-    "@mui/material": "^5.16.7",
-    "@mui/x-data-grid": "^7.7.1",
-    "@tanstack/react-query": "^5.45.1",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@uiw/react-markdown-editor": "^6.1.1",
-    "axios": "^1.7.2",
-    "nth-check": "^2.1.1",
-    "postcss": "^8.4.38",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-hook-form": "^7.52.0",
-    "react-hot-toast": "^2.4.1",
-    "react-markdown": "^9.0.1",
-    "react-router-dom": "^6.23.1",
-    "react-scripts": "5.0.1",
-    "react-syntax-highlighter": "^15.6.1",
-    "three": "^0.165.0",
-    "yup": "^1.4.0",
-    "zustand": "^4.5.2"
-  },
+  "name": "searchmaster-server",
+  "version": "1.0.0",
+  "description": "Server for SearchMaster search engine",
+  "main": "server.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "node server.js"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "web-vitals": "^4.2.0",
-    "webpack": "^5.92.1"
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.6.2",
+    "cheerio": "^1.0.0-rc.12",
+    "cors": "^2.8.5"
   }
 }

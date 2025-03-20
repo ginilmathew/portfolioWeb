@@ -4,14 +4,14 @@ import {
   TextField,
   Button,
   Typography,
-  InputAdornment,
   Paper,
   Container,
   IconButton,
   Divider,
-  FormControl,
-  Select,
-  MenuItem,
+  Card,
+  CardContent,
+  Link,
+  CircularProgress,
 } from '@mui/material';
 import {
   Search as SearchIcon,
@@ -21,30 +21,37 @@ import {
 
 const BrowserScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [searchType, setSearchType] = useState('google');
   const [isSearched, setIsSearched] = useState(false);
-  const [iframeSrc, setIframeSrc] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSearch = (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
       setIsSearched(true);
-      setIframeSrc(`http://localhost:3001/search?q=${encodeURIComponent(searchQuery)}&engine=${searchType}`);
+      setIsLoading(true);
+      
+      try {
+        const response = await fetch(`http://localhost:3001/search?q=${encodeURIComponent(searchQuery)}`);
+        const data = await response.json();
+        setSearchResults(data);
+      } catch (error) {
+        console.error('Search error:', error);
+        setSearchResults([]);
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
 
   const handleClearSearch = () => {
     setSearchQuery('');
     setIsSearched(false);
-    setIframeSrc('');
-  };
-
-  const handleSearchTypeChange = (event) => {
-    setSearchType(event.target.value);
+    setSearchResults([]);
   };
 
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" mt={10}>
       <Box sx={{ py: 4 }}>
         {/* Search Header */}
         <Box sx={{ textAlign: 'center', mb: isSearched ? 2 : 6 }}>
@@ -62,7 +69,7 @@ const BrowserScreen = () => {
           </Typography>
           {!isSearched && (
             <Typography variant="subtitle1" color="text.secondary" sx={{ mb: 3 }}>
-              Find exactly what you're looking for
+              Search the web with ease
             </Typography>
           )}
           
@@ -110,40 +117,68 @@ const BrowserScreen = () => {
               type="submit" 
               variant="contained" 
               sx={{ ml: 1, borderRadius: 2, px: 3 }}
+              disabled={isLoading}
             >
-              Search
+              {isLoading ? <CircularProgress size={24} /> : 'Search'}
             </Button>
           </Paper>
-          
-          {/* Search Categories */}
-          {isSearched && (
-            <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
-              <FormControl variant="standard" sx={{ minWidth: 120 }}>
-                <Select
-                  value={searchType}
-                  onChange={handleSearchTypeChange}
-                  displayEmpty
-                  inputProps={{ 'aria-label': 'Search type' }}
-                >
-                  <MenuItem value="google">Google</MenuItem>
-                  <MenuItem value="bing">Bing</MenuItem>
-                  <MenuItem value="duckduckgo">DuckDuckGo</MenuItem>
-                </Select>
-              </FormControl>
-            </Box>
-          )}
         </Box>
 
+        {/* Search Results */}
         {isSearched && (
           <Box sx={{ mt: 4 }}>
-            {/* Search Results */}
-            <iframe 
-              src={iframeSrc} 
-              title="Search Results" 
-              width="100%" 
-              height="600px" 
-              style={{ border: 'none', borderRadius: '8px' }}
-            />
+            {isLoading ? (
+              <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
+                <CircularProgress />
+              </Box>
+            ) : searchResults.length > 0 ? (
+              searchResults.map((result, index) => (
+                <Card key={index} sx={{ mb: 2, borderRadius: 2 }}>
+                  <CardContent>
+                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+                      {result.favicon && (
+                        <img 
+                          src={result.favicon} 
+                          alt="favicon" 
+                          style={{ width: 16, height: 16, marginRight: 8 }}
+                        />
+                      )}
+                      <Link 
+                        href={result.url} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        sx={{ 
+                          textDecoration: 'none',
+                          color: '#1a0dab',
+                          '&:hover': { textDecoration: 'underline' }
+                        }}
+                      >
+                        {result.title}
+                      </Link>
+                    </Box>
+                    <Typography 
+                      variant="body2" 
+                      color="text.secondary"
+                      sx={{ 
+                        fontSize: '0.875rem',
+                        lineHeight: 1.58
+                      }}
+                    >
+                      {result.description}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              ))
+            ) : (
+              <Typography 
+                variant="h6" 
+                color="text.secondary" 
+                textAlign="center"
+                sx={{ mt: 4 }}
+              >
+                No results found. Try different keywords.
+              </Typography>
+            )}
           </Box>
         )}
       </Box>
